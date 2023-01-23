@@ -1,0 +1,116 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6.25rem;
+  @media (max-width: 590px){
+    flex-direction: column-reverse;
+  }
+}
+
+.header_nav{
+  @media(max-width: 590px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.header_nav__logo {
+  max-width: 5rem;
+  height: auto;
+  @media (max-width: 768px) {
+    max-width: 3.5rem;
+  }
+  @media(max-width: 590px) {
+   margin-left: 0.5rem;
+  }
+}
+
+.header_nav__menu {
+  display: flex;
+  align-items: center;
+  margin-left: 4rem;
+  font-size: 0.9rem;
+  @media (max-width: 1024px) {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.7em;
+    margin-left: 1rem;
+  }
+  @media(max-width: 590px) {
+    margin-right: 1rem;
+  }
+}
+
+.header_nav__menu__link {
+  padding: 0 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  @media (max-width: 1024px) {
+    padding: 0 0.3rem;
+  }
+}
+
+.header_nav {
+  display: flex;
+}
+
+.header_signup {
+  display: flex;
+  @media (max-width: 590px){
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: rgb(0 0 0 / 5%) 0 2px 0 0;
+    padding: 0.5rem 0;
+  }
+}
+
+.header_signup__cityBtn {
+  box-shadow: rgb(0 0 0 / 5%) 0 2px 0 0;
+  padding: 0.43rem 3.125rem 0 0.43rem;
+  opacity: 0.9;
+  margin-top: -0.43rem;
+  @media (max-width: 768px) {
+    font-size: 0.7em;
+    padding: 0.43rem 3rem 0 0.43rem;
+  }
+  @media (max-width: 590px){
+    box-shadow: none;
+    text-decoration: underline;
+}
+}
+
+.header_signup__register {
+  color: @white-bg;
+  background: #ee7560;
+  padding: 1rem 1.7rem;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    &:after {
+      left: 200%;
+      transition: all 0.5s linear;
+    }
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 94px;
+    top: -25px;
+    left: -100px;
+    background: @white-bg;
+    opacity: 0.7;
+    transform: rotate(45deg);
+  }
+  @media (max-width: 768px) {
+    padding: 0.7rem 1rem;
+    font-size: 0.6rem;
+    margin-right: 1rem;
+  }
+}

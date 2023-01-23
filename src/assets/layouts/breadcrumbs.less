@@ -1,0 +1,25 @@
+.breadcrumbs {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.breadcrumbs-el {
+  margin-left: 0.5rem;
+  &::before {
+    content: "/";
+    color: @headline-color;
+    margin-right: 0.3rem;
+  }
+  &:nth-child(1) {
+    margin-left: 0;
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.breadcrumbs-el__link {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.16rem;
+}
