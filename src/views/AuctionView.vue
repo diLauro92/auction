@@ -48,9 +48,15 @@
 <script>
 
 import AuctionItem from "@/components/auction-item";
+import axios from 'axios';
 
 export default {
   components: {AuctionItem},
+  mounted() {
+    axios.get('http://auction/cakes').then(response => {
+      console.log(response)
+    })
+  },
   data() {
     return {
       metaData: {
