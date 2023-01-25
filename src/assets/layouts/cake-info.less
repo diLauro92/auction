@@ -1,0 +1,161 @@
+.cake-content-info {
+  margin-left: 2.813rem;
+  @media (max-width: 768px) {
+    margin-left: 2.0rem;
+  }
+  @media (max-width: 390px) {
+    margin-left: 0.5rem;
+  }
+}
+
+.cake-content-info-top {
+  display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.cake-info-main__title {
+  margin-top: 0;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  grid-area: a;
+  @media (max-width: 1024px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  @media (max-width: 390px) {
+    margin-top: 0.5rem;
+  }
+}
+
+.cake-info-main__date {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  grid-area: b;
+  @media (max-width: 1024px) {
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 0;
+    max-height: 1rem;
+  }
+  @media (max-width: 590px) {
+    margin-top: 0.755rem;
+  }
+  @media (max-width: 480px) {
+    padding: 0.175rem 0.375rem 0.175rem 1.5rem;
+    &:before {
+      top: 0.2rem;
+    }
+  }
+  @media (max-width: 390px) {
+    padding: 0.275rem 0.375rem 0.225rem 1.5rem;
+    font-size: 0.7rem;
+    &:before {
+      top: 0.35rem;
+    }
+  }
+}
+
+.cake-info-main__bet-title {
+  margin-top: 1.938rem;
+  font-size: 0.875rem;
+  grid-area: c;
+  @media (max-width: 1024px) {
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
+  @media (max-width: 780px) {
+    margin-top: 0.4rem;
+  }
+}
+
+.cake-info-main__bet-amount {
+  margin-top: 0.313rem;
+  @media (max-width: 1024px) {
+    margin-top: 0;
+  }
+}
+
+.cake-info-main__bet {
+  font-size: 0.875rem;
+  grid-area: d;
+  @media (max-width: 768px) {
+    justify-content: start;
+  }
+}
+
+.cake-info-advanced {
+  margin-left: 5.25rem;
+  margin-top: 0.225rem;
+
+  & .info-block-with-img {
+    margin-top: 0.875rem;
+
+    @media (max-width: 480px) {
+      margin-top: 0.675rem;
+    }
+
+    & p {
+      max-width: max-content;
+      @media (max-width: 390px) {
+        max-width: 15rem;
+      }
+    }
+
+    & img {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-left: 2.5rem;
+  }
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+}
+
+.cake-content-info-bottom {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  max-width: 45.625rem;
+  @media (max-width: 1024px) {
+    font-size: 0.75rem;
+  }
+  @media (max-width: 590px) {
+    &.desktop {
+      display: none;
+    }
+  }
+}
+
+.cake-info-main__bet-step {
+  @media (max-width: 1024px) {
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+  }
+  @media (max-width: 768px) {
+    margin-left: 1.5rem;
+  }
+
+}
+
+.cake-info-main {
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "a b" "c c" "d d";
+  }
+  @media (max-width: 590px) {
+    grid-template-areas: "a a" "b b" "c c" "d d";
+  }
+}

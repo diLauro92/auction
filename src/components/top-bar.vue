@@ -33,7 +33,7 @@ export default {
     return {
       headerMenuList: [
         {
-          name: 'Аукцион', path: '/'
+          name: 'Аукцион', path: '/auction'
         },
         {
           name: 'Правила аукциона', path: '/rules'

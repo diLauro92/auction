@@ -4,7 +4,7 @@
       :key="index"
       class="auction-shop-item">
     <div class="auction-shop-item-img">
-      <router-link to="/">
+      <router-link to="/cake">
       <img
           :src="item.img"
           class="shop-item__img"
