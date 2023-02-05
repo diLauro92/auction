@@ -12,7 +12,7 @@
 <script>
 import TopBar from "@/components/top-bar";
 import BreadCrumbs from "@/components/bread-crumbs";
-import FooterBlock from "@/components/footer-block";
+import FooterBlock from "@/components/footer-block"
 
 export default {
   components: {FooterBlock, BreadCrumbs, TopBar}
