@@ -14,7 +14,13 @@
       <div class="cake-your-bet">
         1 500&nbsp;Р
       </div>
-      <button class="btn cake-action-btn" data-action="bet">Сделать ставку</button>
+      <button
+          class="btn cake-action-btn"
+          data-action="bet"
+          @click="showModal"
+      >
+        Сделать ставку
+      </button>
     </div>
     <div class="cake-bets-right">
       <div class="cake-bets-history_title cake-bets-container__title">История ставок</div>
@@ -134,14 +140,24 @@
       </ul>
     </div>
   </div>
+  <irrelevant-rate-modal ref="modal"/>
 </template>
 
+
 <script>
+
+import IrrelevantRateModal from './irrelevant-rate-modal'
+
 export default {
-  name: "cake-action-block"
+  name: "cake-action-block",
+  components: {
+    IrrelevantRateModal
+  },
+  methods: {
+    showModal: function () {
+      this.$refs.modal.show = true
+      document.body.classList.add('showModal')
+    }
+  }
 }
 </script>
-
-<style scoped>
-
-</style>
