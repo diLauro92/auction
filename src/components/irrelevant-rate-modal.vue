@@ -10,7 +10,15 @@
             <h3 class="modal-title">Ваша ставка не актуальна</h3>
           </slot>
           <slot name="body">
-            <p>Последняя ставка</p>
+            <p class="last-bet__title">Последняя ставка</p>
+            <p class="last-bet__value">1 400&nbsp;₽</p>
+            <div class="last-bet-step-panel cake-bet-step-panel">
+              <button class="step-panel__min step-panel__btn" data-action="minus">-</button>
+              <div class="step-panel__amount" data-action="amount">100</div>
+              <button class="step-panel__plus step-panel__btn" data-action="plus">+</button>
+            </div>
+            <button class="btn">Сделать ставку</button>
+            <p class="your-bet">Ваша ставка: 1 500&nbsp;₽</p>
           </slot>
         </div>
       </div>

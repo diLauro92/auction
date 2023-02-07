@@ -31,7 +31,8 @@
         </div>
         <div class="auction-header-btn">
           <router-link
-              to="/"
+              @click="showModal"
+              to="/auction"
               class="auction-header__btn btn"
           >
             Создать аукцион
@@ -43,20 +44,22 @@
       </div>
     </div>
   </div>
+  <create-form ref="modal"/>
 </template>
 
 <script>
 
 import AuctionItem from "@/components/auction-item";
-import axios from 'axios';
+// import axios from 'axios';
+import CreateForm from '@/components/create-form'
 
 export default {
-  components: {AuctionItem},
-  mounted() {
-    axios.get('http://auction/cakes').then(response => {
-      console.log(response)
-    })
-  },
+  components: {AuctionItem, CreateForm},
+  // mounted() {
+  //   axios.get('http://auction/cakes').then(response => {
+  //     console.log(response)
+  //   })
+  // },
   data() {
     return {
       metaData: {
@@ -66,17 +69,17 @@ export default {
       tabsList: [
         {
           name: 'Проходят сейчас',
-          url: '/',
+          url: '/auction',
           activity: false
         },
         {
           name: 'Запланированные',
-          url: '/',
+          url: '/auction',
           activity: true
         },
         {
           name: 'Мой аукцион',
-          url: '/',
+          url: '/auction',
           activity: false
         },
       ]
@@ -92,6 +95,10 @@ export default {
       for (const el of tabArr) {
         el.classList.remove('active')
       }
+    },
+    showModal: function () {
+      this.$refs.modal.show = true
+      document.body.classList.add('showModal')
     }
   }
 }
