@@ -52,8 +52,9 @@
       </div>
     </div>
     <div class="cake-content-info-bottom desktop">
-      <p class="cake-content-info-bottom__description">
-        {{ item.description }}
+      <p
+          v-html="item.description"
+          class="cake-content-info-bottom__description">
       </p>
     </div>
   </div>
@@ -76,9 +77,15 @@ export default {
           currency: '₽',
           minStep: '100',
           active: false,
+          slides: {
+            slide1: '/images/cakes2.jpg',
+            slide2: '/images/cakes3.jpg',
+            slide3: '/images/cakes4.jpg',
+            slide4: '/images/medstal.jpg',
+          },
           img: '/images/medstal.jpg',
           description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
-              ' marzipan cookie bonbon sesame snaps chocolate cake.\n + \n + Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+              ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
               'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
         }
       ]
