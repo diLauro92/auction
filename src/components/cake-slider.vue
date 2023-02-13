@@ -1,21 +1,27 @@
 <template>
-  <div class="cake-content-images__main-img">
+  <div
+      v-on:click="console"
+      class="cake-content-images__main-img">
     <swiper
+        v-for="(item, index) in cakeInfo"
+        :key="index"
         :modules="[Thumbs]"
         :thumbs="{swiper: thumbsSwiper}"
         class="cake-content-images__main__img"
     >
       <swiper-slide
-          v-for="(item, index) in swiperBase"
+          v-for="(images, index) in item.slides"
           :key="index"
       >
         <img
-            :src="item.img"
+            :src="images.img"
             class="cake-content-images-slider__item"
         >
       </swiper-slide>
     </swiper>
     <swiper
+        v-for="(item, index) in cakeInfo"
+        :key="index"
         :modules="[Thumbs]"
         watch-slides-progress
         @swiper="setThumbsSwiper"
@@ -30,11 +36,11 @@
         }"
         class="cake-content-images-slider">
       <swiper-slide
-          v-for="(item, index) in swiperBase"
+          v-for="(images, index) in item.slides"
           :key="index"
       >
         <img
-            :src="item.img"
+            :src="images.img"
             class="cake-content-images-slider__item"
         >
       </swiper-slide>
@@ -54,6 +60,17 @@ import {ref} from 'vue'
 export default {
   components: {Swiper, SwiperSlide},
   name: "cake-slider",
+  props: {
+    cakeInfo: {
+      type: Array,
+      default: () => []
+    }
+  },
+  methods: {
+    console: function () {
+      console.log(this.cakeInfo)
+    }
+  },
   setup() {
     const thumbsSwiper = ref(null)
     const setThumbsSwiper = (swiper) => {
@@ -66,24 +83,8 @@ export default {
     } else {
       valueRow = 4
     }
-    const swiperBase = ref([
-      {
-        img: '/images/cakes2.jpg'
-      },
-      {
-        img: '/images/cakes3.jpg'
-      },
-      {
-        img: '/images/cakes4.jpg'
-      },
-      {
-        img: '/images/testCake.jpg'
-      },
-      {
-        img: '/images/medstal.jpg'
-      }
-    ]);
-    return {modules: [Pagination, Autoplay], swiperBase, Thumbs, thumbsSwiper, setThumbsSwiper, valueRow}
+
+    return {modules: [Pagination, Autoplay], Thumbs, thumbsSwiper, setThumbsSwiper, valueRow}
   },
 }
 </script>

@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="auction-shop">
-        <auction-item/>
+        <auction-item :cakes-list="cakes" />
       </div>
     </div>
   </div>
@@ -55,11 +55,189 @@ import CreateForm from '@/components/create-form'
 
 export default {
   components: {AuctionItem, CreateForm},
-  // mounted() {
-  //   axios.get('http://auction/cakes').then(response => {
-  //     console.log(response)
-  //   })
-  // },
+  mounted() {
+    // axios.get('http://auction/cakes').then(response => {
+    //   console.log(response)
+    // })
+    this.cakes = [
+      {
+        name: 'Медсталь торт',
+        startDate: '27 декабря, в 16:00',
+        endDate: '23 часа',
+        filling: 'Радуга',
+        address: 'г. Коломна, ул. Ленина, дом 103А',
+        delivery: true,
+        startBet: '750',
+        amount: '₽',
+        minStep: '100',
+        active: false,
+        img: '/images/medstal.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+      {
+        name: 'Лесные ягоды',
+        startDate: '1 января, в 12:00',
+        endDate: '23 часа',
+        filling: 'Ягоды',
+        address: 'г. Балашиха, ул. Советская, дом 1',
+        delivery: false,
+        startBet: '500',
+        amount: '₽',
+        minStep: '150',
+        active: true,
+        img: '/images/cakes2.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+      {
+        name: 'Стич',
+        startDate: '27 декабря, в 16:00',
+        endDate: '23 часа',
+        filling: 'Радуга',
+        address: 'г. Коломна, ул. Ленина, дом 103А',
+        delivery: true,
+        startBet: '750',
+        amount: '₽',
+        minStep: '100',
+        active: false,
+        img: '/images/cakes3.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+      {
+        name: 'Стич',
+        startDate: '27 декабря, в 16:00',
+        endDate: '23 часа',
+        filling: 'Радуга',
+        address: 'г. Коломна, ул. Ленина, дом 103А',
+        delivery: true,
+        startBet: '750',
+        amount: '₽',
+        minStep: '100',
+        active: false,
+        img: '/images/cakes4.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+      {
+        name: 'Стич',
+        startDate: '27 декабря, в 16:00',
+        endDate: '23 часа',
+        filling: 'Радуга',
+        address: 'г. Коломна, ул. Ленина, дом 103А',
+        delivery: true,
+        startBet: '750',
+        amount: '₽',
+        minStep: '100',
+        active: false,
+        img: '/images/medstal.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+      {
+        name: 'Стич',
+        startDate: '27 декабря, в 16:00',
+        endDate: '23 часа',
+        filling: 'Радуга',
+        address: 'г. Коломна, ул. Ленина, дом 103А',
+        delivery: true,
+        startBet: '750',
+        amount: '₽',
+        minStep: '100',
+        active: false,
+        img: '/images/medstal.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+      {
+        name: 'Стич',
+        startDate: '27 декабря, в 16:00',
+        endDate: '23 часа',
+        filling: 'Радуга',
+        address: 'г. Коломна, ул. Ленина, дом 103А',
+        delivery: true,
+        startBet: '750',
+        amount: '₽',
+        minStep: '100',
+        active: false,
+        img: '/images/medstal.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+      {
+        name: 'Стич',
+        startDate: '27 декабря, в 16:00',
+        endDate: '23 часа',
+        filling: 'Радуга',
+        address: 'г. Коломна, ул. Ленина, дом 103А',
+        delivery: true,
+        startBet: '750',
+        amount: '₽',
+        minStep: '100',
+        active: false,
+        img: '/images/medstal.jpg',
+        slides: {
+          slide1: '/images/cakes2.jpg',
+          slide2: '/images/cakes3.jpg',
+          slide3: '/images/cakes4.jpg',
+          slide4: '/images/medstal.jpg',
+        },
+        description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
+            ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
+            'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
+      },
+    ]
+  },
   data() {
     return {
       metaData: {
@@ -82,7 +260,8 @@ export default {
           url: '/auction',
           activity: false
         },
-      ]
+      ],
+      cakes: []
     }
   },
   methods: {

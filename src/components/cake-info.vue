@@ -63,32 +63,10 @@
 <script>
 export default {
   name: "cake-info",
-  data() {
-    return {
-      cakeInfo: [
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А. cab1',
-          delivery: true,
-          startBet: '750',
-          currency: '₽',
-          minStep: '100',
-          active: false,
-          slides: {
-            slide1: '/images/cakes2.jpg',
-            slide2: '/images/cakes3.jpg',
-            slide3: '/images/cakes4.jpg',
-            slide4: '/images/medstal.jpg',
-          },
-          img: '/images/medstal.jpg',
-          description: 'Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut' +
-              ' marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. ' +
-              'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
-        }
-      ]
+  props: {
+    cakeInfo: {
+      type: Array,
+      default: () => []
     }
   }
 }

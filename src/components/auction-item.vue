@@ -78,116 +78,12 @@
 
 <script>
 export default {
-  name: "auction-item",
-  data() {
-    return {
-      cakesList: [
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А',
-          delivery: true,
-          startBet: '750',
-          amount: '₽',
-          minStep: '100',
-          active: false,
-          img: '/images/medstal.jpg'
-        },
-        {
-          name: 'Лесные ягоды',
-          startDate: '1 января, в 12:00',
-          endDate: '23 часа',
-          filling: 'Ягоды',
-          address: 'г. Балашиха, ул. Советская, дом 1',
-          delivery: false,
-          startBet: '500',
-          amount: '₽',
-          minStep: '150',
-          active: true,
-          img: '/images/cakes2.jpg'
-        },
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А',
-          delivery: true,
-          startBet: '750',
-          amount: '₽',
-          minStep: '100',
-          active: false,
-          img: '/images/cakes3.jpg'
-        },
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А',
-          delivery: true,
-          startBet: '750',
-          amount: '₽',
-          minStep: '100',
-          active: false,
-          img: '/images/cakes4.jpg'
-        },
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А',
-          delivery: true,
-          startBet: '750',
-          amount: '₽',
-          minStep: '100',
-          active: false,
-          img: '/images/medstal.jpg'
-        },
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А',
-          delivery: true,
-          startBet: '750',
-          amount: '₽',
-          minStep: '100',
-          active: false,
-          img: '/images/medstal.jpg'
-        },
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А',
-          delivery: true,
-          startBet: '750',
-          amount: '₽',
-          minStep: '100',
-          active: false,
-          img: '/images/medstal.jpg'
-        },
-        {
-          name: 'Стич',
-          startDate: '27 декабря, в 16:00',
-          endDate: '23 часа',
-          filling: 'Радуга',
-          address: 'г. Коломна, ул. Ленина, дом 103А',
-          delivery: true,
-          startBet: '750',
-          amount: '₽',
-          minStep: '100',
-          active: false,
-          img: '/images/medstal.jpg'
-        },
-      ]
+  props: {
+    cakesList: {
+      type: Array,
+      default: () => []
     }
-  }
+  },
+  name: "auction-item"
 }
 </script>
