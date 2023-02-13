@@ -15,16 +15,38 @@
           <ul class="auction-tabs-list">
             <li
                 class="auction-tabs-item"
-                v-on:click="choiceTab"
-                v-for="(item, index) in tabsList"
-                :key="index"
-                :class="[`auction-tabs-item ${item.activity ? `active` : ``}`]"
+                v-on:click="choice_now"
+                id="now"
             >
               <router-link
-                  :to="item.url"
+                  to="/auction"
                   class="auction-tabs-item__link"
               >
-                {{ item.name }}
+                Проходят сейчас
+              </router-link>
+            </li>
+            <li
+                class="auction-tabs-item"
+                v-on:click="choice_future"
+                id="future"
+            >
+              <router-link
+                  to="/auction"
+                  class="auction-tabs-item__link"
+              >
+                Запланированные
+              </router-link>
+            </li>
+            <li
+                class="auction-tabs-item"
+                v-on:click="choice_myAct"
+                id="myAuction"
+            >
+              <router-link
+                  to="/auction"
+                  class="auction-tabs-item__link"
+              >
+                Мой аукцион
               </router-link>
             </li>
           </ul>
@@ -40,7 +62,7 @@
         </div>
       </div>
       <div class="auction-shop">
-        <auction-item :cakes-list="cakes" />
+        <auction-item :cakes-list="filter_cakes"/>
       </div>
     </div>
   </div>
@@ -136,7 +158,7 @@ export default {
         startBet: '750',
         amount: '₽',
         minStep: '100',
-        active: false,
+        active: true,
         img: '/images/cakes4.jpg',
         slides: {
           slide1: '/images/cakes2.jpg',
@@ -237,6 +259,7 @@ export default {
             'Muffin danish muffin lollipop biscuit jelly beans oat cake croissant.'
       },
     ]
+    this.filter_cakes = this.cakes
   },
   data() {
     return {
@@ -244,36 +267,34 @@ export default {
         titlePage: "Аукцион",
         description: "Бывает, заказчик не хочет выкупать заказанный им торт, и кондитер остается с тортом и без прибыли. Здесь вы можете продать торт иному лицу, либо купить его."
       },
-      tabsList: [
-        {
-          name: 'Проходят сейчас',
-          url: '/auction',
-          activity: false
-        },
-        {
-          name: 'Запланированные',
-          url: '/auction',
-          activity: true
-        },
-        {
-          name: 'Мой аукцион',
-          url: '/auction',
-          activity: false
-        },
-      ],
-      cakes: []
+      cakes: [],
+      filter_cakes: []
     }
   },
   methods: {
-    choiceTab: function () {
-      document.addEventListener('click', e => {
-            e.target.parentElement.classList.add('active')
-          },
-      )
-      const tabArr = document.getElementsByClassName('auction-tabs-item')
-      for (const el of tabArr) {
-        el.classList.remove('active')
-      }
+    choice_now: function () {
+      document.getElementById('now').classList.add('active')
+      document.getElementById('future').classList.remove('active')
+      document.getElementById('myAuction').classList.remove('active')
+      this.filter_cakes = this.cakes.filter(function (cake) {
+        return cake.active === true
+      })
+    },
+    choice_future: function () {
+      document.getElementById('now').classList.remove('active')
+      document.getElementById('future').classList.add('active')
+      document.getElementById('myAuction').classList.remove('active')
+      this.filter_cakes = this.cakes.filter(function (cake) {
+        return cake.active === false
+      })
+    },
+    choice_myAct: function () {
+      document.getElementById('now').classList.remove('active')
+      document.getElementById('future').classList.remove('active')
+      document.getElementById('myAuction').classList.add('active')
+      this.filter_cakes = this.cakes.filter(function (cake) {
+        return cake.active === ''
+      })
     },
     showModal: function () {
       this.$refs.modal.show = true
