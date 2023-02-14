@@ -20,6 +20,11 @@ const routes = [
     name: 'cake',
     component: () => import(/* webpackChunkName: "about" */ '../views/CakeView.vue')
   },
+  // {
+  //   path: 'auction/:slug',
+  //   name: 'cake',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/CakeView.vue')
+  // },
 ]
 
 const router = createRouter({

@@ -15,6 +15,9 @@ import BreadCrumbs from "@/components/bread-crumbs";
 import FooterBlock from "@/components/footer-block"
 
 export default {
-  components: {FooterBlock, BreadCrumbs, TopBar}
+  components: {FooterBlock, BreadCrumbs, TopBar},
+  mounted() {
+    this.$store.dispatch('getCakes')
+  }
 }
 </script>
