@@ -4,7 +4,8 @@
       :key="index"
       class="auction-shop-item">
     <div class="auction-shop-item-img">
-      <router-link to="/cake">
+      <router-link
+          :to="'/auction/' + item.slug">
       <img
           :src="item.img"
           class="shop-item__img"
@@ -60,14 +61,14 @@
       <p class="shop-item__bet-title">Начальная ставка</p>
       <div class="shop-item-bet">
         <div class="shop-item__bet-amount">
-          {{ item.startBet }}&nbsp;{{ item.amount }}
+          {{ item.startBet }}&nbsp;{{ item.currency }}
         </div>
         <div class="shop-item__bet-step">минимальный <br>
-          шаг {{ item.minStep }}&nbsp;{{ item.amount }}
+          шаг {{ item.minStep }}&nbsp;{{ item.currency }}
         </div>
       </div>
       <router-link
-          to="/"
+          :to="'/auction/' + item.slug"
           :class="[`auction-participate__btn btn ${item.active ? `active` : ``}`]"
       >
         Участвовать

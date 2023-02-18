@@ -16,15 +16,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/cake',
+    path: '/auction/:slug',
     name: 'cake',
     component: () => import(/* webpackChunkName: "about" */ '../views/CakeView.vue')
   },
-  // {
-  //   path: 'auction/:slug',
-  //   name: 'cake',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/CakeView.vue')
-  // },
 ]
 
 const router = createRouter({

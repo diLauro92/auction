@@ -4,11 +4,13 @@ import { createStore } from "vuex";
 const store = createStore({
     state: {
         cakes: [],
-        filteredCakes: []
+        filteredCakes: [],
+        currentCake: {}
     },
     getters: {
         allCakes: state => state.cakes,
-        filteredCakes: state => state.filteredCakes
+        filteredCakes: state => state.filteredCakes,
+        currentCake: state => state.currentCake
     },
     mutations: {
         GET_CAKES: (state, cakes) => {
@@ -17,6 +19,10 @@ const store = createStore({
 
         SET_FILTERED: (state, cakes) => {
             state.filteredCakes = cakes
+        },
+
+        SET_CAKE: (state, cake) => {
+            state.currentCake = cake
         }
     },
     actions: {
@@ -38,6 +44,10 @@ const store = createStore({
             })
             commit('SET_FILTERED', filtered)
             console.log(filtered)
+        },
+        getCake({ commit, state }, slug) {
+            const cake = state.cakes.find(cake => cake.slug === slug)
+            commit('SET_CAKE', cake)
         }
     }
 });

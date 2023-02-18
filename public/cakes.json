@@ -1,24 +1,32 @@
 [
   {
-    "name": "Медсталь торт",
+    "name": "Шоколадный торт",
     "startDate": "27 декабря, в 16:00",
     "endDate": "23 часа",
-    "filling": "Радуга",
+    "filling": "Шоколад",
     "address": "г. Коломна, ул. Ленина, дом 103А",
     "delivery": true,
     "startBet": 750,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 100,
     "active": false,
-    "img": "/images/medstal.jpg",
-    "slug": "medstal",
+    "img": "/images/cakes/cake1-1.jpg",
+    "slug": "chokolate",
     "creator": true,
-    "slides": {
-      "slide1": ",/images/cakes2.jpg",
-      "slide2": ",/images/cakes3.jpg",
-      "slide3": ",/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "slides": [
+      {
+        "img": "/images/cakes/cake1-1.jpg"
+      },
+      {
+        "img": "/images/cakes/cake1-2.jpg"
+      },
+      {
+        "img": "/images/cakes/cake1-3.jpg"
+      },
+      {
+        "img": "/images/cakes/cake1-4.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   },
   {
@@ -29,62 +37,83 @@
     "address": "г. Балашиха, ул. Советская, дом 1",
     "delivery": false,
     "startBet": 500,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 150,
     "active": true,
     "creator": false,
     "slug": "forestberry",
-    "img": "/images/cakes2.jpg",
-    "slides": {
-      "slide1": "/images/cakes2.jpg",
-      "slide2": "/images/cakes3.jpg",
-      "slide3": "/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "img": "/images/cakes/cake2-1.jpg",
+    "slides": [
+      {
+        "img": "/images/cakes/cake2-1.jpg"
+      },
+      {
+        "img": "/images/cakes/cake2-2.jpg"
+      },
+      {
+        "img": "/images/cakes/cake2-3.jpg"
+      },
+      {
+        "img": "/images/cakes/cake2-4.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   },
   {
-    "name": "Медсталь торт",
+    "name": "Свадебный торт",
     "startDate": "27 декабря, в 16:00",
     "endDate": "23 часа",
-    "filling": "Радуга",
+    "filling": "Микс",
     "address": "г. Коломна, ул. Ленина, дом 103А",
     "delivery": true,
     "startBet": 750,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 100,
     "active": false,
     "creator": false,
-    "slug": "medstal2",
-    "img": "/images/medstal.jpg",
-    "slides": {
-      "slide1": ",/images/cakes2.jpg",
-      "slide2": ",/images/cakes3.jpg",
-      "slide3": ",/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "slug": "svadebny",
+    "img": "/images/cakes/cake3-1.jpg",
+    "slides": [
+      {
+        "img": "/images/cakes/cake3-1.jpg"
+      },
+      {
+        "img": "/images/cakes/cake3-2.jpg"
+      },
+      {
+        "img": "/images/cakes/cake3-3.jpg"
+      },
+      {
+        "img": "/images/cakes/cake3-4.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   },
   {
-    "name": "Медсталь торт",
+    "name": "Тирамису",
     "startDate": "27 декабря, в 16:00",
-    "endDate": "23 часа",
-    "filling": "Радуга",
+    "endDate": "2 часа",
+    "filling": "Тирамису",
     "address": "г. Коломна, ул. Ленина, дом 103А",
     "delivery": true,
     "startBet": 750,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 100,
-    "active": false,
+    "active": true,
     "creator": false,
-    "slug": "medstal3",
-    "img": "/images/medstal.jpg",
-    "slides": {
-      "slide1": ",/images/cakes2.jpg",
-      "slide2": ",/images/cakes3.jpg",
-      "slide3": ",/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "slug": "tiramisu",
+    "img": "/images/cakes/cake4-1.jpg",
+    "slides": [
+      {
+        "img": "/images/cakes/cake4-1.jpg"
+      },
+      {
+        "img": "/images/cakes/cake4-2.jpg"
+      },
+      {
+        "img": "/images/cakes/cake4-3.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   },
   {
@@ -95,18 +124,26 @@
     "address": "г. Коломна, ул. Ленина, дом 103А",
     "delivery": true,
     "startBet": 750,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 100,
     "active": false,
     "creator": false,
     "slug": "medstal4",
     "img": "/images/medstal.jpg",
-    "slides": {
-      "slide1": ",/images/cakes2.jpg",
-      "slide2": ",/images/cakes3.jpg",
-      "slide3": ",/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "slides": [
+      {
+        "img": "/images/cakes4.jpg"
+      },
+      {
+        "img": "/images/cakes3.jpg"
+      },
+      {
+        "img": "/images/cakes2.jpg"
+      },
+      {
+        "img": "/images/medstal.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   },
   {
@@ -117,18 +154,26 @@
     "address": "г. Коломна, ул. Ленина, дом 103А",
     "delivery": true,
     "startBet": 750,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 100,
     "active": false,
     "creator": false,
     "slug": "medstal5",
     "img": "/images/medstal.jpg",
-    "slides": {
-      "slide1": ",/images/cakes2.jpg",
-      "slide2": ",/images/cakes3.jpg",
-      "slide3": ",/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "slides": [
+      {
+        "img": "/images/cakes4.jpg"
+      },
+      {
+        "img": "/images/cakes3.jpg"
+      },
+      {
+        "img": "/images/cakes2.jpg"
+      },
+      {
+        "img": "/images/medstal.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   },
   {
@@ -139,18 +184,26 @@
     "address": "г. Коломна, ул. Ленина, дом 103А",
     "delivery": true,
     "startBet": 750,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 100,
     "active": false,
     "creator": false,
     "slug": "medstal6",
     "img": "/images/medstal.jpg",
-    "slides": {
-      "slide1": ",/images/cakes2.jpg",
-      "slide2": ",/images/cakes3.jpg",
-      "slide3": ",/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "slides": [
+      {
+        "img": "/images/cakes4.jpg"
+      },
+      {
+        "img": "/images/cakes3.jpg"
+      },
+      {
+        "img": "/images/cakes2.jpg"
+      },
+      {
+        "img": "/images/medstal.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   },
   {
@@ -161,18 +214,26 @@
     "address": "г. Коломна, ул. Ленина, дом 103А",
     "delivery": false,
     "startBet": 750,
-    "amount": "₽",
+    "currency": "₽",
     "minStep": 100,
     "slug": "medstal7",
     "active": false,
     "creator": false,
     "img": "/images/medstal.jpg",
-    "slides": {
-      "slide1": ",/images/cakes2.jpg",
-      "slide2": ",/images/cakes3.jpg",
-      "slide3": ",/images/cakes4.jpg",
-      "slide4": "/images/medstal.jpg"
-    },
+    "slides": [
+      {
+        "img": "/images/cakes4.jpg"
+      },
+      {
+        "img": "/images/cakes3.jpg"
+      },
+      {
+        "img": "/images/cakes2.jpg"
+      },
+      {
+        "img": "/images/medstal.jpg"
+      }
+    ],
     "description": "Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate. Cupcake sweet roll sweet dragée dragée. Lollipop dessert donut marzipan cookie bonbon sesame snaps chocolate cake. <br><br> Toffee chocolate cake apple pie sugar plum sesame snaps muffin cake pudding cupcake. Muffin danish muffin lollipop biscuit jelly beans oat cake croissant."
   }
 ]

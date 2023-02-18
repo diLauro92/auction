@@ -3,14 +3,12 @@
       v-on:click="console"
       class="cake-content-images__main-img">
     <swiper
-        v-for="(item, index) in cakeInfo"
-        :key="index"
         :modules="[Thumbs]"
         :thumbs="{swiper: thumbsSwiper}"
         class="cake-content-images__main__img"
     >
       <swiper-slide
-          v-for="(images, index) in item.slides"
+          v-for="(images, index) in cakeInfo.slides"
           :key="index"
       >
         <img
@@ -20,8 +18,6 @@
       </swiper-slide>
     </swiper>
     <swiper
-        v-for="(item, index) in cakeInfo"
-        :key="index"
         :modules="[Thumbs]"
         watch-slides-progress
         @swiper="setThumbsSwiper"
@@ -36,7 +32,7 @@
         }"
         class="cake-content-images-slider">
       <swiper-slide
-          v-for="(images, index) in item.slides"
+          v-for="(images, index) in cakeInfo.slides"
           :key="index"
       >
         <img
@@ -62,8 +58,8 @@ export default {
   name: "cake-slider",
   props: {
     cakeInfo: {
-      type: Array,
-      default: () => []
+      type: Object,
+      default: () => {}
     }
   },
   methods: {
