@@ -69,7 +69,8 @@ const store = createStore({
             const filteredBets = state.allBets.filter(function (bets){
                 return bets.auctionID === auctionID
             })
-            commit('SET_CURRENT_BETS', filteredBets)
+            const sortFilterBets = filteredBets.sort((bet1, bet2) => bet1.amount < bet2.amount ? 1 : -1)
+            commit('SET_CURRENT_BETS', sortFilterBets)
         }
     }
 });

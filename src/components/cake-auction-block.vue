@@ -4,15 +4,37 @@
       <div class="cake-bet-title cake-bets-container__title">Сделать ставку</div>
       <p class="cake-bet-step__title">Шаг</p>
       <div class="cake-bet-step-panel">
-        <button class="step-panel__min step-panel__btn" data-action="minus">-</button>
-        <div class="step-panel__amount" data-action="amount">100</div>
-        <button class="step-panel__plus step-panel__btn" data-action="plus">+</button>
+        <button
+            v-on:click="decreaseBet"
+            class="step-panel__min step-panel__btn"
+            data-action="minus"
+        >
+          -
+        </button>
+        <div
+            class="step-panel__amount"
+            data-action="amount"
+            ref="step_amount"
+            :data-amount=currentCakeInfo.minStep
+        >
+          {{ currentCakeInfo.minStep }}
+        </div>
+        <button
+            v-on:click="increaseBet()"
+            class="step-panel__plus step-panel__btn"
+            data-action="plus"
+        >
+          +
+        </button>
       </div>
       <p class="cake-your-bet-title">
         Ваша ставка:
       </p>
-      <div class="cake-your-bet">
-        1 500&nbsp;Р
+      <div
+          ref="resultBet"
+          :data-bet-amount=getMinBet()
+          class="cake-your-bet">
+        {{ getMinBet() }} {{ currentCakeInfo.currency }}
       </div>
       <button
           class="btn cake-action-btn"
@@ -72,12 +94,49 @@ export default {
     currentBets: {
       type: Array,
       default: () => []
+    },
+    currentCakeInfo: {
+      type: Object,
+      default: () => {
+      }
     }
   },
   methods: {
     showModal: function () {
       this.$refs.modal.show = true
       document.body.classList.add('showModal')
+    },
+    getMinBet: function () {
+      for (let i = 0; i < this.currentBets.length; i++) {
+        return (this.currentCakeInfo.minStep + this.currentBets[0].amount)
+      }
+    },
+    increaseBet: function () {
+      let currentStep = this.$refs.step_amount.getAttribute('data-amount')
+      let currentBet = this.$refs.resultBet.getAttribute('data-bet-amount')
+      let newStep = Number(currentStep) + this.currentCakeInfo.minStep
+      let newBet = Number(currentBet) + this.currentCakeInfo.minStep
+      this.$refs.step_amount.innerText = newStep.toString()
+      this.$refs.resultBet.innerText = newBet.toString() + " " + this.currentCakeInfo.currency
+      this.$refs.step_amount.setAttribute('data-amount', newStep)
+      this.$refs.resultBet.setAttribute('data-bet-amount', newBet)
+    },
+    decreaseBet: function () {
+      let currentStep = this.$refs.step_amount.getAttribute('data-amount')
+      let currentBet = this.$refs.resultBet.getAttribute('data-bet-amount')
+      let newStep
+      let newBet
+      if (Number(currentStep > this.currentCakeInfo.minStep)) {
+        newStep = Number(currentStep) - this.currentCakeInfo.minStep
+        newBet = Number(currentBet) - this.currentCakeInfo.minStep
+      } else {
+        newStep = Number(currentStep)
+        newBet = Number(currentBet)
+      }
+      this.$refs.step_amount.innerText = newStep.toString()
+      this.$refs.step_amount.setAttribute('data-amount', newStep)
+      this.$refs.resultBet.innerText = newBet.toString() + " " + this.currentCakeInfo.currency
+      this.$refs.resultBet.setAttribute('data-bet-amount', newBet)
     }
   }
 }

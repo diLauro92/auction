@@ -14,7 +14,7 @@
           class="cake-content-info-bottom__description">
       </p>
     </div>
-    <cake-auction-block :current-bets="currentBets"/>
+    <cake-auction-block :current-bets="currentBets" :current-cake-info="currentCakeInfo"/>
   </div>
 </template>
 
@@ -37,7 +37,6 @@ export default {
   mounted() {
     this.$store.dispatch('getCake', this.$route.params.slug)
     this.$store.dispatch('getCurrentBets', this.currentCakeInfo.id)
-    console.log(this.currentBets)
   }
 }
 </script>
