@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "userName": "Анна К.",
+    "amount": 1400,
+    "currency": "₽",
+    "created": "7 минут назад",
+    "auctionID": 1,
+    "avatar": "/images/avatars/profile3.jpg"
+  },
+  {
+    "id": "2",
+    "userName": "Константин Е.",
+    "amount": 1300,
+    "currency": "₽",
+    "created": "10 минут назад",
+    "auctionID": 1,
+    "avatar": "/images/avatars/profile2.jpg"
+  },
+  {
+    "id": "3",
+    "userName": "Максим Велиеваров",
+    "amount": 2000,
+    "currency": "₽",
+    "created": "2 минуты назад",
+    "auctionID": 2,
+    "avatar": "/images/avatars/profile1.jpg"
+  },
+  {
+    "id": "4",
+    "userName": "Ростислав Н.",
+    "amount": 1700,
+    "currency": "₽",
+    "created": "17 минут назад",
+    "auctionID": 2,
+    "avatar": "/images/avatars/profile4.jpg"
+  },
+  {
+    "id": "5",
+    "userName": "Ксения У.",
+    "amount": 1000,
+    "currency": "₽",
+    "created": "37 минут назад",
+    "auctionID": 1,
+    "avatar": "/images/avatars/profile5.jpg"
+  },
+  {
+    "id": "6",
+    "userName": "Ольга К.",
+    "amount": 1600,
+    "currency": "₽",
+    "created": "48 минут назад",
+    "auctionID": 2,
+    "avatar": "/images/avatars/profile6.jpg"
+  },
+  {
+    "id": "7",
+    "userName": "Мартина Касас",
+    "amount": 1200,
+    "currency": "₽",
+    "created": "1 час назад",
+    "auctionID": 2,
+    "avatar": "/images/avatars/profile7.jpg"
+  },
+  {
+    "id": "8",
+    "userName": "Лиана Ким",
+    "amount": 3000,
+    "currency": "₽",
+    "created": "5 минут назад",
+    "auctionID": 3,
+    "avatar": "/images/avatars/profile8.jpg"
+  },
+  {
+    "id": "9",
+    "userName": "Альберт",
+    "amount": 1500,
+    "currency": "₽",
+    "created": "7 минут назад",
+    "auctionID": 3,
+    "avatar": "/images/avatars/profile10.jpg"
+  },
+  {
+    "id": "10",
+    "userName": "Сноуден",
+    "amount": 1100,
+    "currency": "₽",
+    "created": "2 часа назад",
+    "auctionID": 2,
+    "avatar": "/images/avatars/profile9.jpg"
+  }
+]

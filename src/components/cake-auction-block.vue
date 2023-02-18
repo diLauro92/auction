@@ -25,119 +25,34 @@
     <div class="cake-bets-right">
       <div class="cake-bets-history_title cake-bets-container__title">История ставок</div>
       <ul class="cake-bets-list">
-        <li>
+        <li
+            v-for="(item, index) in currentBets"
+            :key="index"
+        >
           <div class="cake-bets-list__item">
             <div class="bets-list-item-top">
               <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
+                <img
+                    :src="item.avatar"
+                    alt="img"
+                    class="avatar"
+                >
+                <p class="person__name">{{ item.userName }}</p>
               </div>
-              <div class="bets-list-item__time">7 минут назад</div>
+              <div class="bets-list-item__time">{{ item.created }}</div>
             </div>
             <div class="bets-list-item__bet">
-              1 400&nbsp;₽
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="cake-bets-list__item">
-            <div class="bets-list-item-top">
-              <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
-              </div>
-              <div class="bets-list-item__time">7 минут назад</div>
-            </div>
-            <div class="bets-list-item__bet">
-              1 400&nbsp;₽
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="cake-bets-list__item">
-            <div class="bets-list-item-top">
-              <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
-              </div>
-              <div class="bets-list-item__time">7 минут назад</div>
-            </div>
-            <div class="bets-list-item__bet">
-              1 400&nbsp;₽
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="cake-bets-list__item">
-            <div class="bets-list-item-top">
-              <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
-              </div>
-              <div class="bets-list-item__time">7 минут назад</div>
-            </div>
-            <div class="bets-list-item__bet">
-              1 400&nbsp;₽
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="cake-bets-list__item">
-            <div class="bets-list-item-top">
-              <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
-              </div>
-              <div class="bets-list-item__time">7 минут назад</div>
-            </div>
-            <div class="bets-list-item__bet">
-              1 400&nbsp;₽
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="cake-bets-list__item">
-            <div class="bets-list-item-top">
-              <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
-              </div>
-              <div class="bets-list-item__time">7 минут назад</div>
-            </div>
-            <div class="bets-list-item__bet">
-              1 400&nbsp;₽
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="cake-bets-list__item">
-            <div class="bets-list-item-top">
-              <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
-              </div>
-              <div class="bets-list-item__time">7 минут назад</div>
-            </div>
-            <div class="bets-list-item__bet">
-              1 400&nbsp;₽
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="cake-bets-list__item">
-            <div class="bets-list-item-top">
-              <div class="bets-list-item-person">
-                <img src="/images/icon/profile.png" alt="img" class="avatar">
-                <p class="person__name">Анна К.</p>
-              </div>
-              <div class="bets-list-item__time">7 минут назад</div>
-            </div>
-            <div class="bets-list-item__bet">
-              1 400&nbsp;₽
+              {{ item.amount }}&nbsp;{{ item.currency }}
             </div>
           </div>
         </li>
       </ul>
+      <p
+          v-if="!currentBets.length"
+          class="notification-bets"
+      >
+        Пока не было сделано ни одной ставки
+      </p>
     </div>
   </div>
   <irrelevant-rate-modal ref="modal"/>
@@ -152,6 +67,12 @@ export default {
   name: "cake-action-block",
   components: {
     IrrelevantRateModal
+  },
+  props: {
+    currentBets: {
+      type: Array,
+      default: () => []
+    }
   },
   methods: {
     showModal: function () {

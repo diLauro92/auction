@@ -18,6 +18,7 @@ export default {
   components: {FooterBlock, BreadCrumbs, TopBar},
   mounted() {
     this.$store.dispatch('getCakes')
+    this.$store.dispatch('getAllBets')
   }
 }
 </script>

@@ -65,9 +65,6 @@ export default {
       type: Object,
       default: () => {}
     }
-  },
-  mounted() {
-    console.log(this.cakeInfo)
   }
 }
 </script>

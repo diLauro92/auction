@@ -10,11 +10,11 @@
     </div>
     <div class="cake-content-info-bottom mobile">
       <p
-          v-html=" currentCakeInfo.description"
+          v-html="currentCakeInfo.description"
           class="cake-content-info-bottom__description">
       </p>
     </div>
-    <cake-auction-block/>
+    <cake-auction-block :current-bets="currentBets"/>
   </div>
 </template>
 
@@ -29,10 +29,15 @@ export default {
   computed: {
     currentCakeInfo() {
       return this.$store.getters.currentCake
+    },
+    currentBets() {
+      return this.$store.getters.currentBets
     }
   },
   mounted() {
     this.$store.dispatch('getCake', this.$route.params.slug)
+    this.$store.dispatch('getCurrentBets', this.currentCakeInfo.id)
+    console.log(this.currentBets)
   }
 }
 </script>
