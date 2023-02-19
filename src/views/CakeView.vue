@@ -37,6 +37,7 @@ export default {
   mounted() {
     this.$store.dispatch('getCake', this.$route.params.slug)
     this.$store.dispatch('getCurrentBets', this.currentCakeInfo.id)
+    window.scrollTo(0,0)
   }
 }
 </script>

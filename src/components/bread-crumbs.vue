@@ -23,11 +23,11 @@ export default {
       breadcrumbsList: [
         {
           text: 'Главная',
-          href: '#'
+          href: '/'
         },
         {
           text: 'Аукцион',
-          href: '#'
+          href: '/auction'
         }
       ]
     }
