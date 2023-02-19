@@ -36,10 +36,17 @@
           class="cake-your-bet">
         {{ getMinBet() }} {{ currentCakeInfo.currency }}
       </div>
+      <!--      <div-->
+      <!--          :v-else="getMinBet() === null"-->
+      <!--          ref="resultBet"-->
+      <!--          :data-bet-amount=currentCakeInfo.startBet-->
+      <!--          class="cake-your-bet">-->
+      <!--        {{ currentCakeInfo.startBet }} {{ currentCakeInfo.currency }}-->
+      <!--      </div>-->
       <button
           class="btn cake-action-btn"
           data-action="bet"
-          @click="showModal"
+          @click="makeNewBet"
       >
         Сделать ставку
       </button>
@@ -101,14 +108,33 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      currentUser:
+          {
+            id: 11,
+            userName: "Username L.",
+            avatar: '/images/icon/profile.png',
+            created: '1 минуту назад',
+            amount: 0,
+            auctionID: 0,
+            currency: "₽"
+          }
+    }
+  },
   methods: {
     showModal: function () {
       this.$refs.modal.show = true
       document.body.classList.add('showModal')
     },
     getMinBet: function () {
-      for (let i = 0; i < this.currentBets.length; i++) {
-        return (this.currentCakeInfo.minStep + this.currentBets[0].amount)
+      let arrLen = this.currentBets.length
+      if (arrLen !== 0) {
+        for (let i = 0; i < this.currentBets.length; i++) {
+          return (this.currentCakeInfo.minStep + this.currentBets[0].amount)
+        }
+      } else {
+        return (this.currentCakeInfo.startBet)
       }
     },
     increaseBet: function () {
@@ -137,6 +163,18 @@ export default {
       this.$refs.step_amount.setAttribute('data-amount', newStep)
       this.$refs.resultBet.innerText = newBet.toString() + " " + this.currentCakeInfo.currency
       this.$refs.resultBet.setAttribute('data-bet-amount', newBet)
+    },
+    makeNewBet: function () {
+      let currentBet = this.$refs.resultBet.getAttribute('data-bet-amount')
+      let updateCurrentBets = this.currentBets
+      let userMakeBet = this.currentUser
+      userMakeBet.auctionID = this.currentCakeInfo.id
+      userMakeBet.id = userMakeBet.id + 1
+      userMakeBet.amount = Number(currentBet)
+      updateCurrentBets.push(userMakeBet)
+      updateCurrentBets.sort((bet1, bet2) => bet1.amount < bet2.amount ? 1 : -1)
+      this.$refs.step_amount.innerText = this.currentCakeInfo.minStep.toString()
+      this.$refs.step_amount.setAttribute('data-amount', this.currentCakeInfo.minStep)
     }
   }
 }

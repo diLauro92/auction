@@ -11,6 +11,7 @@
     "currency": "₽",
     "minStep": 100,
     "active": false,
+    "fillingImg": "/images/cakes/cake1-1.jpg",
     "img": "/images/cakes/cake1-1.jpg",
     "slug": "chokolate",
     "creator": true,
@@ -45,6 +46,7 @@
     "creator": false,
     "slug": "forestberry",
     "img": "/images/cakes/cake2-1.jpg",
+    "fillingImg": "/images/cakes/cake2-1.jpg",
     "slides": [
       {
         "img": "/images/cakes/cake2-1.jpg"
@@ -76,6 +78,7 @@
     "creator": false,
     "slug": "svadebny",
     "img": "/images/cakes/cake3-1.jpg",
+    "fillingImg": "/images/cakes/cake2-2.jpg",
     "slides": [
       {
         "img": "/images/cakes/cake3-1.jpg"
@@ -107,6 +110,7 @@
     "creator": false,
     "slug": "tiramisu",
     "img": "/images/cakes/cake4-1.jpg",
+    "fillingImg": "/images/cakes/cake4-3.jpg",
     "slides": [
       {
         "img": "/images/cakes/cake4-1.jpg"
@@ -135,6 +139,7 @@
     "creator": false,
     "slug": "medstal4",
     "img": "/images/medstal.jpg",
+    "fillingImg": "/images/cakes/cake1-1.jpg",
     "slides": [
       {
         "img": "/images/cakes4.jpg"
@@ -166,6 +171,7 @@
     "creator": false,
     "slug": "medstal5",
     "img": "/images/medstal.jpg",
+    "fillingImg": "/images/cakes/cake1-1.jpg",
     "slides": [
       {
         "img": "/images/cakes4.jpg"
@@ -197,6 +203,7 @@
     "creator": false,
     "slug": "medstal6",
     "img": "/images/medstal.jpg",
+    "fillingImg": "/images/cakes/cake1-1.jpg",
     "slides": [
       {
         "img": "/images/cakes4.jpg"
@@ -228,6 +235,7 @@
     "active": false,
     "creator": false,
     "img": "/images/medstal.jpg",
+    "fillingImg": "/images/cakes/cake1-1.jpg",
     "slides": [
       {
         "img": "/images/cakes4.jpg"

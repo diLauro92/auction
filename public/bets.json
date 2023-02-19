@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "userName": "Анна К.",
     "amount": 1400,
     "currency": "₽",
@@ -9,7 +9,7 @@
     "avatar": "/images/avatars/profile3.jpg"
   },
   {
-    "id": "2",
+    "id": 2,
     "userName": "Константин Е.",
     "amount": 1300,
     "currency": "₽",
@@ -18,7 +18,7 @@
     "avatar": "/images/avatars/profile2.jpg"
   },
   {
-    "id": "3",
+    "id": 3,
     "userName": "Максим Велиеваров",
     "amount": 2000,
     "currency": "₽",
@@ -27,7 +27,7 @@
     "avatar": "/images/avatars/profile1.jpg"
   },
   {
-    "id": "4",
+    "id": 4,
     "userName": "Ростислав Н.",
     "amount": 1700,
     "currency": "₽",
@@ -36,7 +36,7 @@
     "avatar": "/images/avatars/profile4.jpg"
   },
   {
-    "id": "5",
+    "id": 5,
     "userName": "Ксения У.",
     "amount": 1000,
     "currency": "₽",
@@ -45,7 +45,7 @@
     "avatar": "/images/avatars/profile5.jpg"
   },
   {
-    "id": "6",
+    "id": 6,
     "userName": "Ольга К.",
     "amount": 1600,
     "currency": "₽",
@@ -54,7 +54,7 @@
     "avatar": "/images/avatars/profile6.jpg"
   },
   {
-    "id": "7",
+    "id": 7,
     "userName": "Мартина Касас",
     "amount": 1200,
     "currency": "₽",
@@ -63,7 +63,7 @@
     "avatar": "/images/avatars/profile7.jpg"
   },
   {
-    "id": "8",
+    "id": 8,
     "userName": "Лиана Ким",
     "amount": 3000,
     "currency": "₽",
@@ -72,7 +72,7 @@
     "avatar": "/images/avatars/profile8.jpg"
   },
   {
-    "id": "9",
+    "id": 9,
     "userName": "Альберт",
     "amount": 1500,
     "currency": "₽",
@@ -81,7 +81,7 @@
     "avatar": "/images/avatars/profile10.jpg"
   },
   {
-    "id": "10",
+    "id": 10,
     "userName": "Сноуден",
     "amount": 1100,
     "currency": "₽",

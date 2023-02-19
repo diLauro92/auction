@@ -29,7 +29,10 @@
         Начнётся {{ item.startDate }}
       </p>
       <div class="shop-item-filling info-block-with-img">
-        <img src="/images/Ellipse10.png" alt="" class="shop-item-filling__img">
+        <img
+            :src="item.fillingImg"
+            class="shop-item-filling__img"
+        >
         <p class="shop-item-filling__text">
           Начинка: {{ item.filling }}
         </p>

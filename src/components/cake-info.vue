@@ -17,7 +17,9 @@
       </div>
       <div class="cake-info-advanced">
         <div class="cake-info-filling shop-item-filling info-block-with-img">
-          <img src="/images/Ellipse10.png" alt="" class="cake-info-filling__img shop-item-filling__img">
+          <img
+              :src="cakeInfo.fillingImg"
+              class="cake-info-filling__img shop-item-filling__img">
           <p class="cake-info-filling__text shop-item-filling__text">
             Начинка: {{ cakeInfo.filling }}
           </p>

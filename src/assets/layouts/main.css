@@ -119,6 +119,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background: transparent;
   color: transparent;
   z-index: 10;
+  cursor: pointer;
 }
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-clear-button,
@@ -1010,12 +1011,13 @@ body.showModal {
 @media (max-width: 768px) {
   .cake-content-images__main__img {
     width: 13.5rem;
+    height: 11.563rem;
   }
 }
 @media (max-width: 480px) {
   .cake-content-images__main__img {
     width: 10.5rem;
-    height: 10.563rem;
+    height: 8.563rem;
   }
 }
 @media (max-width: 390px) {
@@ -1223,6 +1225,9 @@ body.showModal {
     margin-left: 0;
   }
 }
+.shop-item-filling__img {
+  border-radius: 1rem;
+}
 .cake-content-info-bottom {
   margin-top: 2rem;
   font-size: 0.875rem;
@@ -1351,7 +1356,7 @@ body.showModal {
 }
 @media (max-width: 480px) {
   .cake-bet-step-panel {
-    justify-content: end;
+    justify-content: right;
   }
 }
 .step-panel__btn {
@@ -1412,8 +1417,9 @@ body.showModal {
 @media (max-width: 480px) {
   .cake-your-bet {
     margin-top: 1.2rem;
-    text-align: right;
     margin-right: 0.5rem;
+    display: flex;
+    justify-content: right;
   }
 }
 .cake-action-btn {
@@ -1510,7 +1516,7 @@ body.showModal {
   margin-top: 3rem;
 }
 .modal-shadow {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   min-height: 100%;
@@ -1768,11 +1774,16 @@ body.showModal {
     padding-right: 0.6rem;
   }
 }
+@media (max-width: 480px) {
+  .download-img::before {
+    top: 0.721rem;
+  }
+}
 @media (max-width: 390px) {
   .download-img {
     font-size: 0.55rem;
   }
-  .download-img:before {
+  .download-img::before {
     display: none;
     padding: 0;
   }
@@ -1969,6 +1980,11 @@ p.radio-button.active:after {
 .modal-info-standard-thing__title:after {
   top: 0.15rem !important;
   left: -1.35rem !important;
+}
+@media (max-width: 480px) {
+  .modal-info-standard-thing__title:after {
+    left: -1.4rem !important;
+  }
 }
 .delivery-address {
   margin-top: 0.813rem;

@@ -1,5 +1,5 @@
 .modal-shadow {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   min-height: 100%;
@@ -245,9 +245,14 @@
     justify-content: right;
     padding-right: 0.6rem;
   }
+  @media (max-width: 480px) {
+    &::before {
+      top: 0.721rem;
+    }
+  }
   @media (max-width: 390px) {
     font-size: 0.55rem;
-    &:before {
+    &::before {
       display: none;
       padding: 0;
     }
@@ -434,6 +439,11 @@ p.radio-button {
   &:after {
     top: 0.15rem !important;
     left: -1.35rem !important;
+  }
+  @media (max-width: 480px) {
+    &:after {
+      left: -1.4rem !important;
+    }
   }
 }
 

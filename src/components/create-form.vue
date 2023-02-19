@@ -3,7 +3,7 @@
     <div v-if="show" class="modal-shadow" @click.self="closeModal">
       <div class="modal">
         <div class="modal-close" @click="closeModal">
-          <img src="images/icon/close.png" alt="">
+          <img src="/images/icon/close.png" alt="">
         </div>
         <div class="modal-container">
           <slot name="title">
