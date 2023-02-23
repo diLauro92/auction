@@ -7,15 +7,25 @@
   display: flex;
   justify-content: center;
   padding-bottom: 0;
+
+  &.text-notification-modal {
+    height: auto;
+    .modal-title {
+      margin-bottom: 4rem;
+    }
+  }
+
   @media (max-width: 480px) {
     width: 20.625rem;
   }
   @media (max-width: 390px) {
     width: 17.625rem;
   }
+
   p {
     opacity: 1;
   }
+
   & .modal-container {
     width: 15.938rem;
     padding: 0;
@@ -24,7 +34,7 @@
     flex-direction: column;
     align-items: center;
 
-    & .modal-title{
+    & .modal-title {
       font-size: 2.5rem;
       line-height: 2.875rem;
       margin-top: 0;
@@ -39,6 +49,7 @@
     margin-top: 0.95rem;
     font-size: 0.875rem;
   }
+
   .last-bet__value {
     margin-top: 0.563rem;
     font-size: 2rem;
@@ -48,14 +59,24 @@
   .last-bet-step-panel {
     margin-top: 1rem;
   }
+
   .btn {
     margin-top: 1.125rem;
     width: 13.938rem;
   }
+
   .your-bet {
     margin-top: 0.75rem;
   }
 }
+
 .modal-shadow-notification {
   position: fixed;
+}
+
+.modal-container {
+  &.text-notification-container {
+    width: auto;
+    margin-top: 4.625rem;
+  }
 }

@@ -36,13 +36,6 @@
           class="cake-your-bet">
         {{ getMinBet() }} {{ currentCakeInfo.currency }}
       </div>
-      <!--      <div-->
-      <!--          :v-else="getMinBet() === null"-->
-      <!--          ref="resultBet"-->
-      <!--          :data-bet-amount=currentCakeInfo.startBet-->
-      <!--          class="cake-your-bet">-->
-      <!--        {{ currentCakeInfo.startBet }} {{ currentCakeInfo.currency }}-->
-      <!--      </div>-->
       <button
           class="btn cake-action-btn"
           data-action="bet"

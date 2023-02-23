@@ -7,14 +7,18 @@ const store = createStore({
         filteredCakes: [],
         currentCake: {},
         allBets: [],
-        currentBets: {}
+        currentBets: {},
+        cities: [],
+        fillings: []
     },
     getters: {
         allCakes: state => state.cakes,
         filteredCakes: state => state.filteredCakes,
         currentCake: state => state.currentCake,
         allBets: state => state.allBets,
-        currentBets: state => state.currentBets
+        currentBets: state => state.currentBets,
+        cities: state => state.cities,
+        fillings: state => state.fillings
     },
     mutations: {
         GET_CAKES: (state, cakes) => {
@@ -34,6 +38,12 @@ const store = createStore({
         },
         SET_CURRENT_BETS: (state, bets) => {
             state.currentBets = bets
+        },
+        GET_CITIES: (state, cities) => {
+            state.cities = cities
+        },
+        GET_FILLINGS: (state, fillings) => {
+            state.fillings = fillings
         }
     },
     actions: {
@@ -45,6 +55,16 @@ const store = createStore({
         getAllBets({commit}) {
             axios.get('/bets.json').then(response => {
                 commit('GET_ALL_BETS', response.data)
+            })
+        },
+        getCities({commit}) {
+            axios.get('/cities.json').then(response => {
+                commit('GET_CITIES', response.data)
+            })
+        },
+        getFillings({commit}) {
+            axios.get('/fillings.json').then(response => {
+                commit('GET_FILLINGS', response.data)
             })
         },
         filteredCakesAct({commit, state}, value) {
@@ -66,7 +86,7 @@ const store = createStore({
             commit('SET_CAKE', cake)
         },
         getCurrentBets({commit, state}, auctionID) {
-            const filteredBets = state.allBets.filter(function (bets){
+            const filteredBets = state.allBets.filter(function (bets) {
                 return bets.auctionID === auctionID
             })
             const sortFilterBets = filteredBets.sort((bet1, bet2) => bet1.amount < bet2.amount ? 1 : -1)

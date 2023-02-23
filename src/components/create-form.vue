@@ -7,222 +7,341 @@
         </div>
         <div class="modal-container">
           <slot name="title">
-            <h3 class="modal-title">Создание аукциона</h3>
+            <h3
+                v-text="modalTitle"
+                class="modal-title"></h3>
           </slot>
-          <slot name="body">
-            <div class="modal-header">
-              <p class="modal-header__title">Город</p>
-              <select name="choose_city" id="choose_city" class="select-city select-usable" aria-placeholder="Выберете город">
-                <option>Выберете город</option>
-                <option>Москва</option>
-                <option>Казань</option>
-                <option>Коломна</option>
-                <option>Смоленск</option>
-                <option>Мурманск</option>
-              </select>
-            </div>
-            <div class="modal-body">
-              <div class="modal-images">
-                <img src="/images/no_images.png" class="modal-images-main__img">
-                <div class="modal-images-bottom">
-                  <div class="modal-pictures">
-                    <img src="/images/no_images.png" class="modal-pictures__img">
-                    <img src="/images/no_images.png" class="modal-pictures__img">
-                    <img src="/images/no_images.png" class="modal-pictures__img">
-                    <img src="/images/no_images.png" class="modal-pictures__img">
-                  </div>
-                  <button class="btn download-img">Загрузите фотографии</button>
-                </div>
+          <div id="createFormBody">
+            <slot name="body">
+              <div class="modal-header">
+                <p class="modal-header__title">Город</p>
+                <select
+                    v-on:change="setCities"
+                    id="choose_city"
+                    class="select-city select-usable"
+                >
+                  <option value="" disabled selected>Выберете город</option>
+                  <option
+                      v-for="(item, index) in cities"
+                      :key="index"
+                      :id="item.name"
+                      :value="item.name"
+                  >
+                    {{ item.name }}
+                  </option>
+                </select>
+                <p class="error-validation error-city d-none">Пожалуйста, выберите город</p>
               </div>
-              <div class="modal-info">
-                <p class="modal-info__title">Название аукциона</p>
-                <input type="text" name="cake-name" placeholder="Продается торт Наполеон">
-                <div class="modal-info-sem">
-                  <div class="modal-info-bet">
-                    <p class="modal-info-bet__title modal-info__title">
-                      Начальная ставка
-                    </p>
-                    <div class="currency-type">
-                      <input type="number" name="first-amount" placeholder="500" class="currency-type">
-                      <p class="label-for-currency-type">₽</p>
+              <div class="modal-body">
+                <div class="modal-images">
+                  <img src="/images/no_images.png" class="modal-images-main__img">
+                  <div class="modal-images-bottom">
+                    <div class="modal-pictures">
+                      <img src="/images/no_images.png" class="modal-pictures__img">
+                      <img src="/images/no_images.png" class="modal-pictures__img">
+                      <img src="/images/no_images.png" class="modal-pictures__img">
+                      <img src="/images/no_images.png" class="modal-pictures__img">
                     </div>
-                  </div>
-                  <div class="modal-info-step">
-                    <p class="modal-info-step__title modal-info__title">
-                      Минимальный шаг
-                    </p>
-                    <div class="currency-type">
-                      <input type="number" name="min-step" placeholder="100">
-                      <p class="label-for-currency-type">₽</p>
-                    </div>
+                    <button class="btn download-img">Загрузите фотографии</button>
                   </div>
                 </div>
-                <div class="modal-info-sem">
-                  <div class="modal-info-date">
-                    <p class="modal-info-date__title modal-info__title">
-                      Дата и время начала аукциона
-                    </p>
-                    <div class="input-semi-sem">
-                      <div class="datepicker-type">
-                        <input type="date" value="" name="choose-date" placeholder="02.01.2023" class="currency-type" onchange="this.className=(this.value!==''?'has-value':'')">
-                        <img class="label-for-datepicker-type" src="/images/icon/calendar.png">
+                <div class="modal-info">
+                  <p class="modal-info__title">Название аукциона</p>
+                  <input
+                      v-on:change="setName"
+                      type="text"
+                      id="cake_name"
+                      placeholder="Продается торт Наполеон"
+                  >
+                  <p class="error-validation error-name d-none">Пожалуйста, введите название</p>
+                  <div class="modal-info-sem">
+                    <div class="modal-info-bet">
+                      <p class="modal-info-bet__title modal-info__title">
+                        Начальная ставка
+                      </p>
+                      <div class="currency-type">
+                        <input
+                            v-on:change="setFirstBet"
+                            type="number"
+                            id="first-amount"
+                            placeholder="500"
+                            class="currency-type"
+                        >
+                        <p class="label-for-currency-type">₽</p>
+                        <p class="error-validation error-startBet d-none">Пожалуйста, введите ставку</p>
                       </div>
+                    </div>
+                    <div class="modal-info-step">
+                      <p class="modal-info-step__title modal-info__title">
+                        Минимальный шаг
+                      </p>
+                      <div class="currency-type">
+                        <input
+                            v-on:change="setMinStep"
+                            type="number"
+                            id="min-step"
+                            placeholder="100"
+                        >
+                        <p class="label-for-currency-type">₽</p>
+                        <p class="error-validation error-minStep d-none">Пожалуйста, введите шаг</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-info-sem">
+                    <div class="modal-info-date">
+                      <p class="modal-info-date__title modal-info__title">
+                        Дата и время начала аукциона
+                      </p>
+                      <div class="input-semi-sem">
+                        <div class="datepicker-type">
+                          <input
+                              v-on:change="setStartDate"
+                              type="date"
+                              value=""
+                              id="choose-date"
+                              placeholder="02.01.2023"
+                              class="currency-type"
+                              onchange="this.className=(this.value!==''?'has-value':'')"
+                          >
+                          <img class="label-for-datepicker-type" src="/images/icon/calendar.png">
+                        </div>
+                        <div class="clock-type">
+                          <input
+                              v-on:change="setStartClock"
+                              type="time"
+                              id="choose-time"
+                              placeholder="12:00"
+                              class="currency-type"
+                              onchange="this.className=(this.value!==''?'has-value':'')"
+                          >
+                          <img class="label-for-clock-type" src="/images/icon/clock.png">
+                        </div>
+                      </div>
+                      <p class="error-validation error-date error-startClock d-none">Пожалуйста, выберите дату и время</p>
+                    </div>
+                    <div class="modal-info-duration">
+                      <p class="modal-info-duration__title modal-info__title">
+                        Продолжительность аукциона
+                      </p>
                       <div class="clock-type">
-                        <input type="time" name="choose-time" placeholder="12:00" class="currency-type" onchange="this.className=(this.value!==''?'has-value':'')">
+                        <input
+                            v-on:change="setDuration"
+                            type="number"
+                            id="duration"
+                            placeholder="12 часов">
                         <img class="label-for-clock-type" src="/images/icon/clock.png">
                       </div>
+                      <p class="error-validation error-endDate d-none">Пожалуйста, выберите продолжительность</p>
                     </div>
                   </div>
-                  <div class="modal-info-duration">
-                    <p class="modal-info-duration__title modal-info__title">
-                      Продолжительность аукциона
-                    </p>
-                    <div class="clock-type">
-                      <input type="number" name="duration" placeholder="12 часов">
-                      <img class="label-for-clock-type" src="/images/icon/clock.png">
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-info-sem row-with-radio filling-radio">
-                  <div class="modal-info-standard-filling">
-                    <p
-                        class="radio-button active modal-info__title modal-info-standard-filling__title choose-radio-title"
-                        v-on:click="chooseStandard"
-                    >
-                      Стандартная начинка
-                    </p>
-                    <select
-                        name="choose_filling"
-                        id="choose_filling"
-                        class="select-city select-usable radio-element"
-                        aria-placeholder="Выберете начинку"
-                    >
-                      <option>Выберете начинку</option>
-                      <option>Суфле</option>
-                      <option>Радуга</option>
-                      <option>Бисквит</option>
-                      <option>Гвозди</option>
-                      <option>Разные вкусняхи</option>
-                    </select>
-                  </div>
-                  <div class="modal-info-personal-filling">
-                    <p
-                        class="radio-button modal-info__title modal-info-personal-filling__title choose-radio-title"
-                        v-on:click="choosePersonal"
-                    >
-                      Индивидуальная начинка
-                    </p>
-                    <input
-                        class="radio-element modal-info-inactive-input"
-                        type="text"
-                        id="personal_filling"
-                        name="personal_filling"
-                        placeholder="Напишите название"
-                        disabled
-                    >
-                  </div>
-                </div>
-
-                <div class="modal-info-quarter row-with-radio">
-                  <div class="modal-info-standard-weight">
-                    <p
-                        class="radio-button active modal-info__title modal-info-standard-weight__title choose-radio-quantity"
-                        v-on:click="chooseWeight"
-                    >
-                      Вес (граммы)
-                    </p>
-                    <div class="currency-type">
-                      <input
-                          type="number"
-                          name="weight"
-                          placeholder="2 000"
-                          class="currency-type radio-element-quantity"
-                          id="weight"
+                  <div class="modal-info-sem row-with-radio filling-radio">
+                    <div class="modal-info-standard-filling">
+                      <p
+                          class="radio-button active modal-info__title modal-info-standard-filling__title choose-radio-title"
+                          v-on:click="chooseStandard"
                       >
-                      <p class="label-for-currency-type">₽</p>
+                        Стандартная начинка
+                      </p>
+                      <select
+                          v-on:change="setFillings"
+                          id="choose_filling"
+                          class="select-city select-usable radio-element"
+                          aria-placeholder="Выберете начинку"
+                      >
+                        <option value="" disabled selected>Выберете начинку</option>
+                        <option
+                            v-for="(item, index) in fillings"
+                            :key="index"
+                            :id="item.name"
+                            :value="item.name"
+                        >
+                          {{ item.name }}
+                        </option>
+                      </select>
+                      <p class="error-validation error-filling d-none">Пожалуйста, выберите начинку</p>
                     </div>
-                  </div>
-
-                  <div class="modal-info-standard-thing">
-                    <p
-                        class="radio-button modal-info__title modal-info-standard-thing__title choose-radio-quantity"
-                        v-on:click="chooseThing"
-                    >
-                      Шт
-                    </p>
-                    <div class="currency-type">
+                    <div class="modal-info-personal-filling">
+                      <p
+                          class="radio-button modal-info__title modal-info-personal-filling__title choose-radio-title"
+                          v-on:click="choosePersonal"
+                      >
+                        Индивидуальная начинка
+                      </p>
                       <input
-                          type="number"
-                          name="thing"
-                          placeholder=""
-                          id="thing"
-                          class="currency-type modal-info-inactive-input radio-element-quantity"
+                          v-on:change="setPersonalFilling"
+                          class="radio-element modal-info-inactive-input"
+                          type="text"
+                          id="personal_filling"
+                          name="personal_filling"
+                          placeholder="Напишите название"
                           disabled
                       >
+                    </div>
+                  </div>
+
+                  <div class="modal-info-quarter row-with-radio">
+                    <div class="modal-info-standard-weight">
+                      <p
+                          class="radio-button active modal-info__title modal-info-standard-weight__title choose-radio-quantity"
+                          v-on:click="chooseWeight"
+                      >
+                        Вес (граммы)
+                      </p>
+                      <div class="currency-type">
+                        <input
+                            v-on:change="setWeight"
+                            type="number"
+                            name="weight"
+                            placeholder="2 000"
+                            class="currency-type radio-element-quantity"
+                            id="weight"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="modal-info-standard-thing">
+                      <p
+                          class="radio-button modal-info__title modal-info-standard-thing__title choose-radio-quantity"
+                          v-on:click="chooseThing"
+                      >
+                        Шт
+                      </p>
+                      <div class="currency-type">
+                        <input
+                            v-on:change="setAmount"
+                            type="number"
+                            placeholder=""
+                            id="thing"
+                            class="currency-type modal-info-inactive-input radio-element-quantity"
+                            disabled
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <p class="error-validation error-weight error-amount d-none">Пожалуйста, выберите вес или количество</p>
+                  <div class="delivery-address">
+                    <p class="modal-info__title delivery-address__title">Адрес самовывоза</p>
+                    <input
+                        v-on:change="setAddress"
+                        type="text"
+                        id="address"
+                        placeholder="г. Москва, ул. Ленина, д. 3, кв. 1348"
+                        class="delivery-address__input">
+                  </div>
+                  <p class="error-validation error-address d-none">Пожалуйста, введите адрес</p>
+
+                  <div class="delivery-checkpoint">
+                    <div
+                        v-on:click="checkDelivery"
+                        id="delivery"
+                        class="checkbox_input active"
+                    >
+                      Есть доставка
+                    </div>
+                  </div>
+
+                  <div class="delivery-price">
+                    <p class="modal-info__title delivery-price__title">Стоимость доставки</p>
+                    <div class="currency-type">
+                      <input
+                          v-on:change="setDeliveryPrice"
+                          type="text"
+                          id="delivery-price"
+                          placeholder="200"
+                          class="delivery-price__input currency-type">
                       <p class="label-for-currency-type">₽</p>
                     </div>
                   </div>
-                </div>
+                  <p class="error-validation error-deliveryPrice d-none">Пожалуйста, введите стоимость</p>
 
-                <div class="delivery-address">
-                  <p class="modal-info__title delivery-address__title">Адрес самовывоза</p>
-                  <input type="text" name="delivery-address" placeholder="г. Москва, ул. Ленина, д. 3, кв. 1348" class="delivery-address__input">
-                </div>
-
-                <div class="delivery-checkpoint">
-                  <div
-                      v-on:click="checkDelivery"
-                      id="delivery"
-                      class="checkbox_input active"
-                  >
-                    Есть доставка
+                  <div class="modal-info-description">
+                    <p class="description__title modal-info__title">Описание</p>
+                    <textarea
+                        v-on:change="setDescription"
+                        id="description"
+                        class="description__input"
+                        placeholder="Торт как на фото, сделала вчера"></textarea>
                   </div>
+
+                  <p class="error-validation error-description d-none">Пожалуйста, ведите описание</p>
+
+                  <button
+                      v-on:click="submitForm"
+                      id="create-auction"
+                      class="btn create-auction"
+                  >Создать аукцион
+                  </button>
+
+                  <p class="policy-warning">Нажимая на кнопку ”Создать аукцион” вы соглашаетесь<br>с
+                    <router-link to="#">политикой конфиденциальности</router-link>
+                  </p>
                 </div>
-
-                <div class="delivery-price">
-                  <p class="modal-info__title delivery-price__title">Стоимость доставки</p>
-                  <div class="currency-type">
-                    <input type="text" id="delivery-price" name="delivery-price" placeholder="200" class="delivery-price__input currency-type">
-                    <p class="label-for-currency-type">₽</p>
-                  </div>
-                </div>
-
-                <div class="modal-info-description">
-                  <p class="description__title modal-info__title">Описание</p>
-                  <textarea id="description" name="description" class="description__input" placeholder="Торт как на фото, сделала вчера"></textarea>
-                </div>
-
-                <button
-                    id="create-auction"
-                    class="btn create-auction"
-                >Создать аукцион
-                </button>
-
-                <p class="policy-warning">Нажимая на кнопку ”Создать аукцон” вы соглашаетесь<br>с
-                  <router-link to="#">политикой конфиденциальности</router-link>
-                </p>
               </div>
-            </div>
-          </slot>
+            </slot>
+          </div>
         </div>
       </div>
     </div>
   </transition>
+  <modal-notification ref="modal-notification" :h3-text="successCreateTitle"/>
 </template>
 
 <script>
+import ModalNotification from "@/components/modal-notification";
+
 export default {
   name: "create-form",
-
+  components: {ModalNotification},
   data: function () {
     return {
-      show: false
+      show: false,
+      modalTitle: "Создание аукциона",
+      successCreateTitle: "Ваш аукцион успешно создан",
+      validationInputCount: 13,
+      newAuction:
+          {
+            name: "",
+            city: "",
+            startBet: "",
+            minStep: "",
+            date: "",
+            startDate: "",
+            startClock: "",
+            endDate: "",
+            filling: "",
+            weight: "",
+            amount: "",
+            address: "",
+            delivery: true,
+            deliveryPrice: "",
+            description: "",
+            slug: "/new-cake",
+            img: "/images/cakes/cake2-1.jpg",
+            id: 50
+          }
+
+    }
+  },
+  computed: {
+    cities() {
+      return this.$store.getters.cities
+    },
+    fillings() {
+      return this.$store.getters.fillings
     }
   },
   methods: {
     closeModal: function () {
       this.show = false
       document.body.classList.remove('showModal')
+      this.modalTitle = "Создание аукциона"
+    },
+    showModal: function () {
+      this.$refs.modal.show = true
+      document.body.classList.add('showModal')
+    },
+    showModalNotification: function () {
+      this.$refs["modal-notification"].show = true
     },
     chooseStandard: function () {
       let radioTitleArr = document.getElementsByClassName('choose-radio-title')
@@ -235,6 +354,7 @@ export default {
         radioElements[1].setAttribute('disabled', 'true')
         inputIndividual.classList.add('modal-info-inactive-input')
       }
+      this.setFillings()
     },
     choosePersonal: function () {
       let radioTitleArr = document.getElementsByClassName('choose-radio-title')
@@ -247,6 +367,7 @@ export default {
         radioElements[1].removeAttribute('disabled')
         inputIndividual.classList.remove('modal-info-inactive-input')
       }
+      this.newAuction.filling = ""
     },
     chooseWeight: function () {
       let radioTitleArr = document.getElementsByClassName('choose-radio-quantity')
@@ -261,6 +382,8 @@ export default {
         inputThing.classList.add('modal-info-inactive-input')
         inputWeight.classList.remove('modal-info-inactive-input')
       }
+      this.newAuction.amount = 1
+      this.setWeight()
     },
     chooseThing: function () {
       let radioTitleArr = document.getElementsByClassName('choose-radio-quantity')
@@ -275,6 +398,8 @@ export default {
         inputThing.classList.remove('modal-info-inactive-input')
         inputWeight.classList.add('modal-info-inactive-input')
       }
+      this.newAuction.weight = "Не указан"
+      this.setAmount()
     },
     checkDelivery: function () {
       let checkboxDelivery = document.getElementById('delivery')
@@ -284,11 +409,123 @@ export default {
         checkboxDelivery.classList.add('inactive')
         priceInput.classList.add('modal-info-inactive-input')
         priceInput.setAttribute('disabled', 'true')
+        this.setDeliveryPrice()
+        this.newAuction.delivery = false
+        this.newAuction.deliveryPrice = 0
       } else {
         checkboxDelivery.classList.add('active')
         checkboxDelivery.classList.remove('inactive')
         priceInput.classList.remove('modal-info-inactive-input')
         priceInput.removeAttribute('disabled')
+        this.newAuction.delivery = true
+      }
+    },
+    setCities: function () {
+      let errorNotify = document.getElementsByClassName('error-city')
+      errorNotify[0].classList.add('d-none')
+      let select = document.getElementById('choose_city')
+      this.newAuction.city = select.options[select.selectedIndex].value
+    },
+    setName: function () {
+      let errorNotify = document.getElementsByClassName('error-name')
+      this.newAuction.name = document.getElementById('cake_name').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setFirstBet: function () {
+      let errorNotify = document.getElementsByClassName('error-startBet')
+      this.newAuction.startBet = document.getElementById('first-amount').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setMinStep: function () {
+      let errorNotify = document.getElementsByClassName('error-minStep')
+      this.newAuction.minStep = document.getElementById('min-step').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setStartDate: function () {
+      let errorNotify = document.getElementsByClassName('error-date')
+      this.newAuction.date = document.getElementById('choose-date').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setStartClock: function () {
+      let errorNotify = document.getElementsByClassName('error-startClock')
+      this.newAuction.startClock = document.getElementById('choose-time').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setDuration: function () {
+      let errorNotify = document.getElementsByClassName('error-endDate')
+      this.newAuction.endDate = document.getElementById('duration').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setFillings: function () {
+      let errorNotify = document.getElementsByClassName('error-filling')
+      let select = document.getElementById('choose_filling')
+      this.newAuction.filling = select.options[select.selectedIndex].value
+      errorNotify[0].classList.add('d-none')
+    },
+    setPersonalFilling: function () {
+      let errorNotify = document.getElementsByClassName('error-filling')
+      this.newAuction.filling = document.getElementById('personal_filling').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setWeight: function () {
+      let errorNotify = document.getElementsByClassName('error-weight')
+      this.newAuction.weight = document.getElementById('weight').value
+      this.newAuction.amount = 1
+      errorNotify[0].classList.add('d-none')
+    },
+    setAmount: function () {
+      let errorNotify = document.getElementsByClassName('error-amount')
+      this.newAuction.amount = document.getElementById('thing').value
+      this.newAuction.weight = "Не указан"
+      errorNotify[0].classList.add('d-none')
+    },
+    setAddress: function () {
+      let errorNotify = document.getElementsByClassName('error-address')
+      this.newAuction.address = document.getElementById('address').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setDeliveryPrice: function () {
+      let errorNotify = document.getElementsByClassName('error-deliveryPrice')
+      this.newAuction.deliveryPrice = document.getElementById('delivery-price').value
+      errorNotify[0].classList.add('d-none')
+    },
+    setDescription: function () {
+      let errorNotify = document.getElementsByClassName('error-description')
+      this.newAuction.description = document.getElementById('description').value
+      errorNotify[0].classList.add('d-none')
+    },
+    validationData: function () {
+      for (let key in this.newAuction) {
+        if (key !== "startDate" && key !== "delivery" && key !== "id" && key !== "img" && key !== "slug") {
+          if (this.newAuction[key] === "") {
+            let error = document.getElementsByClassName('error-' + key)
+            error[0].classList.remove('d-none')
+          }
+        }
+      }
+    },
+    submitForm: function () {
+      let validationCount = this.validationInputCount
+      for (let input in this.newAuction) {
+        if (input !== "startDate" && input !== "delivery" && input !== "id" && input !== "img" && input !== "slug") {
+          if (this.newAuction[input] === "") {
+            validationCount = validationCount - 1
+            this.validationData()
+          }
+        }
+      }
+
+      if (validationCount === this.validationInputCount) {
+        this.closeModal()
+        this.showModalNotification()
+        this.newAuction.startBet = Number(this.newAuction.startBet)
+        this.newAuction.minStep = Number(this.newAuction.minStep)
+        this.newAuction.startDate = this.newAuction.date + "T" + this.newAuction.startClock
+        if (this.newAuction.weight !== "Не указан") {
+          this.newAuction.weight = Number(this.newAuction.weight)
+        }
+        this.newAuction.deliveryPrice = Number(this.newAuction.deliveryPrice)
+        console.log(this.newAuction)
       }
     }
   }

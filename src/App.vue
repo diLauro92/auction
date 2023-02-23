@@ -19,6 +19,8 @@ export default {
   mounted() {
     this.$store.dispatch('getCakes')
     this.$store.dispatch('getAllBets')
+    this.$store.dispatch('getCities')
+    this.$store.dispatch('getFillings')
   }
 }
 </script>

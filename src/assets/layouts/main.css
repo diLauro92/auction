@@ -147,6 +147,9 @@ input[type="time"]:not(.has-value):before {
 body.showModal {
   overflow: hidden;
 }
+.d-none {
+  display: none;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -1636,6 +1639,7 @@ body.showModal {
   margin-top: 0.625rem;
 }
 .select-usable {
+  cursor: pointer;
   width: 100%;
   background-color: #F1F1F1;
   height: 3.003rem;
@@ -2046,6 +2050,12 @@ p.radio-button.active:after {
 .modal-info-quarter .label-for-currency-type {
   top: 1.65rem;
 }
+.error-validation {
+  color: red;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
 .modal-notification {
   position: fixed;
   top: 40%;
@@ -2055,6 +2065,12 @@ p.radio-button.active:after {
   display: flex;
   justify-content: center;
   padding-bottom: 0;
+}
+.modal-notification.text-notification-modal {
+  height: auto;
+}
+.modal-notification.text-notification-modal .modal-title {
+  margin-bottom: 4rem;
 }
 @media (max-width: 480px) {
   .modal-notification {
@@ -2109,5 +2125,9 @@ p.radio-button.active:after {
 }
 .modal-shadow-notification {
   position: fixed;
+}
+.modal-container.text-notification-container {
+  width: auto;
+  margin-top: 4.625rem;
 }
 /*# sourceMappingURL=main.css.map */
