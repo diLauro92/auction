@@ -297,7 +297,6 @@ export default {
       show: false,
       modalTitle: "Создание аукциона",
       successCreateTitle: "Ваш аукцион успешно создан",
-      validationInputCount: 13,
       newAuction:
           {
             name: "",
@@ -305,7 +304,7 @@ export default {
             startBet: "",
             minStep: "",
             date: "",
-            startDate: "",
+            startDate: "0",
             startClock: "",
             endDate: "",
             filling: "",
@@ -420,6 +419,8 @@ export default {
         this.newAuction.delivery = true
       }
     },
+
+    // собираем данные с полей в новый аукцион
     setCities: function () {
       let errorNotify = document.getElementsByClassName('error-city')
       errorNotify[0].classList.add('d-none')
@@ -494,28 +495,28 @@ export default {
       this.newAuction.description = document.getElementById('description').value
       errorNotify[0].classList.add('d-none')
     },
+
+    //проверяем поля на пустоту
     validationData: function () {
       for (let key in this.newAuction) {
-        if (key !== "startDate" && key !== "delivery" && key !== "id" && key !== "img" && key !== "slug") {
+        if (key !== "startDate" && key !== "delivery" && key !== "id" && key !== "img" && key !== "slug") { // исключаем ключи без полей
           if (this.newAuction[key] === "") {
-            let error = document.getElementsByClassName('error-' + key)
+            let error = document.getElementsByClassName('error-' + key) // получаем поле у которого вызываем сообщение с ошибкой
             error[0].classList.remove('d-none')
           }
         }
       }
     },
     submitForm: function () {
-      let validationCount = this.validationInputCount
+      let validationCount = Object.keys(this.newAuction).length
       for (let input in this.newAuction) {
-        if (input !== "startDate" && input !== "delivery" && input !== "id" && input !== "img" && input !== "slug") {
-          if (this.newAuction[input] === "") {
-            validationCount = validationCount - 1
-            this.validationData()
-          }
+        if (this.newAuction[input] === "") {
+          validationCount = validationCount - 1 // исключаем дублирующее поле с начинкой
+          this.validationData()
         }
       }
 
-      if (validationCount === this.validationInputCount) {
+      if (validationCount === Object.keys(this.newAuction).length) {
         this.closeModal()
         this.showModalNotification()
         this.newAuction.startBet = Number(this.newAuction.startBet)
