@@ -9,7 +9,8 @@ const store = createStore({
         allBets: [],
         currentBets: {},
         cities: [],
-        fillings: []
+        fillings: [],
+        currentCakeFilling: {},
     },
     getters: {
         allCakes: state => state.cakes,
@@ -18,7 +19,8 @@ const store = createStore({
         allBets: state => state.allBets,
         currentBets: state => state.currentBets,
         cities: state => state.cities,
-        fillings: state => state.fillings
+        fillings: state => state.fillings,
+        currentCakeFilling: state => state.currentCakeFilling,
     },
     mutations: {
         GET_CAKES: (state, cakes) => {
@@ -44,7 +46,10 @@ const store = createStore({
         },
         GET_FILLINGS: (state, fillings) => {
             state.fillings = fillings
-        }
+        },
+        SET_CURRENT_CAKE_FILLING: (state, filling) => {
+            state.currentCakeFilling = filling
+        },
     },
     actions: {
         getCakes({commit}) {
@@ -91,6 +96,10 @@ const store = createStore({
             })
             const sortFilterBets = filteredBets.sort((bet1, bet2) => bet1.amount < bet2.amount ? 1 : -1)
             commit('SET_CURRENT_BETS', sortFilterBets)
+        },
+        getCurrentCakeFilling({commit, state}, fillingID) {
+            const filling = state.fillings.find(filling => filling.id === fillingID)
+            commit('SET_CURRENT_CAKE_FILLING', filling)
         }
     }
 });

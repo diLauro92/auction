@@ -1,34 +1,42 @@
 [
   {
     "id": 1,
-    "name": "Шоколад"
+    "name": "Шоколад",
+    "img": "/images/cakes/cake1-1.jpg"
   },
   {
     "id": 2,
-    "name": "Радуга"
+    "name": "Радуга",
+    "img": "/images/cakes/cake2-4.jpg"
   },
   {
     "id": 3,
-    "name": "Тирамису"
+    "name": "Тирамису",
+    "img": "/images/cakes/cake4-1.jpg"
   },
   {
     "id": 4,
-    "name": "Микс"
+    "name": "Микс",
+    "img": "/images/cakes/cake2-2.jpg"
   },
   {
     "id": 5,
-    "name": "Ягоды"
+    "name": "Ягоды",
+    "img": "/images/cakes/cake2-3.jpg"
   },
   {
     "id": 6,
-    "name": "Ореховая"
+    "name": "Ореховая",
+    "img": "/images/cakes/cake1-2.jpg"
   },
   {
     "id": 7,
-    "name": "Карамель"
+    "name": "Карамель",
+    "img": "/images/cakes/cake1-3.jpg"
   },
   {
     "id": 8,
-    "name": "Чизкейк"
+    "name": "Чизкейк",
+    "img": "/images/cakes/cake4-3.jpg"
   }
 ]

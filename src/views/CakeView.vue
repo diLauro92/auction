@@ -5,7 +5,7 @@
         <cake-slider :cake-info="currentCakeInfo"/>
       </div>
       <div class="cake-content-info">
-        <cake-info :cake-info="currentCakeInfo"/>
+        <cake-info :cake-info="currentCakeInfo" :filling="getCurrentCakeFilling" />
       </div>
     </div>
     <div class="cake-content-info-bottom mobile">
@@ -32,11 +32,15 @@ export default {
     },
     currentBets() {
       return this.$store.getters.currentBets
+    },
+    getCurrentCakeFilling() {
+      return this.$store.getters.currentCakeFilling
     }
   },
   mounted() {
     this.$store.dispatch('getCake', this.$route.params.slug)
     this.$store.dispatch('getCurrentBets', this.currentCakeInfo.id)
+    this.$store.dispatch('getCurrentCakeFilling', this.currentCakeInfo.filling)
     window.scrollTo(0,0)
   }
 }

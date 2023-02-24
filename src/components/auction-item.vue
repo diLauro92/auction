@@ -6,10 +6,10 @@
     <div class="auction-shop-item-img">
       <router-link
           :to="'/auction/' + item.slug">
-      <img
-          :src="item.img"
-          class="shop-item__img"
-      >
+        <img
+            :src="item.img"
+            class="shop-item__img"
+        >
       </router-link>
     </div>
     <div class="auction-shop-item-info">
@@ -28,15 +28,7 @@
       >
         Начнётся {{ item.startDate }}
       </p>
-      <div class="shop-item-filling info-block-with-img">
-        <img
-            :src="item.fillingImg"
-            class="shop-item-filling__img"
-        >
-        <p class="shop-item-filling__text">
-          Начинка: {{ item.filling }}
-        </p>
-      </div>
+     <auction-item-filling :cake="item" :fillings-list="fillingList" />
       <div class="shop-item-adress info-block-with-img">
         <img src="/images/icon/check.png" alt="" class="shop-item-filling__img">
         <p class="shop-item__adress">
@@ -81,9 +73,16 @@
 </template>
 
 <script>
+
+import AuctionItemFilling from "@/components/auction-item-filling";
 export default {
+  components: {AuctionItemFilling},
   props: {
     cakesList: {
+      type: Array,
+      default: () => []
+    },
+    fillingList: {
       type: Array,
       default: () => []
     }

@@ -29,10 +29,10 @@
       <div class="cake-info-advanced">
         <div class="cake-info-filling shop-item-filling info-block-with-img">
           <img
-              :src="cakeInfo.fillingImg"
+              :src="filling.img"
               class="cake-info-filling__img shop-item-filling__img">
           <p class="cake-info-filling__text shop-item-filling__text">
-            Начинка: {{ cakeInfo.filling }}
+            Начинка: {{ filling.name }}
           </p>
         </div>
         <div class="cake-info-address shop-item-adress info-block-with-img">
@@ -71,10 +71,15 @@
 </template>
 
 <script>
+
 export default {
   name: "cake-info",
   props: {
     cakeInfo: {
+      type: Object,
+      default: () => {}
+    },
+    filling: {
       type: Object,
       default: () => {}
     }

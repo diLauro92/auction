@@ -152,6 +152,7 @@
                         <option
                             v-for="(item, index) in fillings"
                             :key="index"
+                            :data-id="item.id"
                             :id="item.name"
                             :value="item.name"
                         >
@@ -317,7 +318,21 @@ export default {
             slug: "new-cake",
             img: "/images/cakes/cake2-1.jpg",
             id: 50,
-            currency: "₽"
+            currency: "₽",
+            slides: [
+              {
+                img: "/images/cakes4.jpg"
+              },
+              {
+                img: "/images/cakes3.jpg"
+              },
+              {
+                img: "/images/cakes2.jpg"
+              },
+              {
+                img: "/images/medstal.jpg"
+              }
+            ],
           }
 
     }
@@ -467,7 +482,7 @@ export default {
     setFillings: function () {
       let errorNotify = document.getElementsByClassName('error-filling')
       let select = document.getElementById('choose_filling')
-      this.newAuction.filling = select.options[select.selectedIndex].value
+      this.newAuction.filling = select.options[select.selectedIndex].dataset.id
       errorNotify[0].classList.add('d-none')
     },
     setPersonalFilling: function () {
@@ -529,6 +544,7 @@ export default {
         this.showModalNotification()
         this.newAuction.startBet = Number(this.newAuction.startBet)
         this.newAuction.minStep = Number(this.newAuction.minStep)
+        this.newAuction.filling = Number(this.newAuction.filling)
         this.newAuction.startDate = this.newAuction.date + "T" + this.newAuction.startClock
         if (this.newAuction.weight !== "Не указан") {
           this.newAuction.weight = Number(this.newAuction.weight)

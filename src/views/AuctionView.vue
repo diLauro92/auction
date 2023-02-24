@@ -62,8 +62,8 @@
         </div>
       </div>
       <div class="auction-shop">
-        <auction-item v-if="!filteredState" :cakes-list="cakes"/>
-        <auction-item v-if="filteredState" :cakes-list="filteredCakes"/>
+        <auction-item v-if="!filteredState" :cakes-list="cakes" :filling-list="fillings"/>
+        <auction-item v-if="filteredState" :cakes-list="filteredCakes" :filling-list="fillings"/>
       </div>
     </div>
   </div>
@@ -83,6 +83,9 @@ export default {
     },
     filteredCakes() {
       return this.$store.getters.filteredCakes
+    },
+    fillings() {
+      return this.$store.getters.fillings
     }
   },
   data() {
