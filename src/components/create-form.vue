@@ -314,11 +314,18 @@ export default {
             delivery: true,
             deliveryPrice: "",
             description: "",
-            slug: "/new-cake",
+            slug: "new-cake",
             img: "/images/cakes/cake2-1.jpg",
-            id: 50
+            id: 50,
+            currency: "₽"
           }
 
+    }
+  },
+  props: {
+    cakesList: {
+      type: Array,
+      default: () => []
     }
   },
   computed: {
@@ -499,7 +506,7 @@ export default {
     //проверяем поля на пустоту
     validationData: function () {
       for (let key in this.newAuction) {
-        if (key !== "startDate" && key !== "delivery" && key !== "id" && key !== "img" && key !== "slug") { // исключаем ключи без полей
+        if (key !== "startDate" && key !== "delivery") { // исключаем ключи без полей
           if (this.newAuction[key] === "") {
             let error = document.getElementsByClassName('error-' + key) // получаем поле у которого вызываем сообщение с ошибкой
             error[0].classList.remove('d-none')
@@ -509,6 +516,7 @@ export default {
     },
     submitForm: function () {
       let validationCount = Object.keys(this.newAuction).length
+      let updateCakeList = this.cakesList
       for (let input in this.newAuction) {
         if (this.newAuction[input] === "") {
           validationCount = validationCount - 1 // исключаем дублирующее поле с начинкой
@@ -526,6 +534,8 @@ export default {
           this.newAuction.weight = Number(this.newAuction.weight)
         }
         this.newAuction.deliveryPrice = Number(this.newAuction.deliveryPrice)
+        updateCakeList.push(this.newAuction)
+        updateCakeList.sort((cake1, cake2) => cake1.id < cake2.id ? 1 : -1)
         console.log(this.newAuction)
       }
     }

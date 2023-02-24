@@ -4,7 +4,18 @@
       <div
           class="cake-info-main">
         <p class="cake-info-main__title shop-item__title">{{ cakeInfo.name }}</p>
-        <p class="cake-info-main__date shop-item__date active">Идёт, осталось {{ cakeInfo.endDate }}</p>
+        <p
+            v-if="cakeInfo.active"
+            class="cake-info-main__date shop-item__date active"
+        >
+          Идёт, осталось {{ cakeInfo.endDate }}
+        </p>
+        <p
+            v-if="!cakeInfo.active"
+            class="cake-info-main__date shop-item__date"
+        >
+          Начнётся {{ cakeInfo.startDate }}
+        </p>
         <p class="cake-info-main__bet-title shop-item__bet-title">Начальная ставка</p>
         <div class="cake-info-main__bet shop-item-bet">
           <div class="cake-info-main__bet-amount shop-item__bet-amount">

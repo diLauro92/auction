@@ -67,7 +67,7 @@
       </div>
     </div>
   </div>
-  <create-form ref="modal"/>
+  <create-form :cakes-list="cakes" ref="modal"/>
 </template>
 
 <script>

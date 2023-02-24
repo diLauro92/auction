@@ -37,7 +37,7 @@
         {{ getMinBet() }} {{ currentCakeInfo.currency }}
       </div>
       <button
-          class="btn cake-action-btn"
+          :class="[`btn cake-action-btn ${currentCakeInfo.active ? `active` : ``}`]"
           data-action="bet"
           @click="makeNewBet"
       >
