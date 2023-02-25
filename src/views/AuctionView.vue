@@ -54,7 +54,7 @@
         <div class="auction-header-btn">
           <router-link
               @click="showModal"
-              to="/auction"
+              to="/"
               class="auction-header__btn btn"
           >
             Создать аукцион
