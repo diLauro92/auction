@@ -336,7 +336,7 @@ export default {
             weight: "",
             amount: "",
             address: "",
-            active: true,
+            active: false,
             delivery: true,
             deliveryPrice: "",
             description: "",

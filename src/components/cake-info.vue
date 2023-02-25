@@ -8,13 +8,13 @@
             v-if="cakeInfo.active"
             class="cake-info-main__date shop-item__date active"
         >
-          Идёт, осталось {{ cakeInfo.endDate }}
+          Идёт, осталось {{ getLeftHours(cakeInfo.endDate) }}
         </p>
         <p
             v-if="!cakeInfo.active"
             class="cake-info-main__date shop-item__date"
         >
-          Начнётся {{ cakeInfo.startDate }}
+          Начнётся {{ getFormatDate(cakeInfo.startDate) }}
         </p>
         <p class="cake-info-main__bet-title shop-item__bet-title">Начальная ставка</p>
         <div class="cake-info-main__bet shop-item-bet">
@@ -83,6 +83,26 @@ export default {
       type: Object,
       default: () => {}
     }
-  }
+  },
+  methods: {
+    getFormatDate: function (date) {
+      let newDate = Date.parse(date)
+      let formatDate = new Date(newDate)
+      let options = {
+        month: 'long',
+        day: 'numeric',
+        timezone: 'UTC',
+        hour: 'numeric',
+        minute: 'numeric'
+      }
+      return formatDate.toLocaleString('ru', options)
+    },
+    getLeftHours: function (date) {
+      let newDate = Date.parse(date)
+      let localDate = new Date()
+      let leftHours = newDate - localDate
+      return Math.round(leftHours / 3600000) + ' часа'
+    }
+  },
 }
 </script>

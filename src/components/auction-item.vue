@@ -20,15 +20,15 @@
           v-if="item.active"
           class="shop-item__date active"
       >
-        Идет, осталось {{ item.endDate }}
+        Идет, осталось {{ getLeftHours(item.endDate) }}
       </p>
       <p
           v-if="!item.active"
           class="shop-item__date"
       >
-        Начнётся {{ item.startDate }}
+        Начнётся {{ getFormatDate(item.startDate) }}
       </p>
-     <auction-item-filling :cake="item" :fillings-list="fillingList" />
+      <auction-item-filling :cake="item" :fillings-list="fillingList"/>
       <div class="shop-item-adress info-block-with-img">
         <img src="/images/icon/check.png" alt="" class="shop-item-filling__img">
         <p class="shop-item__adress">
@@ -75,6 +75,7 @@
 <script>
 
 import AuctionItemFilling from "@/components/auction-item-filling";
+
 export default {
   components: {AuctionItemFilling},
   props: {
@@ -85,6 +86,26 @@ export default {
     fillingList: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    getFormatDate: function (date) {
+      let newDate = Date.parse(date)
+      let formatDate = new Date(newDate)
+      let options = {
+        month: 'long',
+        day: 'numeric',
+        timezone: 'UTC',
+        hour: 'numeric',
+        minute: 'numeric'
+      }
+      return formatDate.toLocaleString('ru', options)
+    },
+    getLeftHours: function (date) {
+      let newDate = Date.parse(date)
+      let localDate = new Date()
+      let leftHours = newDate - localDate
+      return Math.round(leftHours / 3600000) + ' часа'
     }
   },
   name: "auction-item"
