@@ -167,6 +167,7 @@
 
   & img {
     border-radius: 0.25rem;
+    object-fit: cover;
   }
 
   @media (max-width: 1024px) {
@@ -184,6 +185,7 @@
 .modal-images-main__img {
   width: 100%;
   height: 12.063rem;
+  cursor: pointer;
   @media (max-width: 768px) {
     height: 9.063rem;
   }
@@ -200,6 +202,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0.5rem;
+  cursor: pointer;
+  img {
+    height: 2.75rem;
+  }
   @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 0.3rem;
@@ -227,7 +233,7 @@
   font-size: 0.75rem;
 }
 
-.download-img {
+.download-img, .clean-img {
   margin-top: 0.513rem;
   width: 100%;
   position: relative;
@@ -257,6 +263,13 @@
       display: none;
       padding: 0;
     }
+  }
+}
+
+.clean-img {
+  &::before {
+    content: url("../icon/remove.png");
+    top: 0.85rem;
   }
 }
 

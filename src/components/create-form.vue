@@ -34,15 +34,39 @@
               </div>
               <div class="modal-body">
                 <div class="modal-images">
-                  <img src="/images/no_images.png" class="modal-images-main__img">
+                  <img
+                      v-on:click="uploadChange"
+                      id="upload-image-1"
+                      src="/images/no_images.png"
+                      class="modal-images-main__img upload-image"
+                  >
                   <div class="modal-images-bottom">
-                    <div class="modal-pictures">
-                      <img src="/images/no_images.png" class="modal-pictures__img">
-                      <img src="/images/no_images.png" class="modal-pictures__img">
-                      <img src="/images/no_images.png" class="modal-pictures__img">
-                      <img src="/images/no_images.png" class="modal-pictures__img">
+                    <div v-on:click="uploadChange" class="modal-pictures">
+                      <img id="upload-image-2" src="/images/no_images.png" class="modal-pictures__img upload-image">
+                      <img id="upload-image-3" src="/images/no_images.png" class="modal-pictures__img upload-image">
+                      <img id="upload-image-4" src="/images/no_images.png" class="modal-pictures__img upload-image">
+                      <img id="upload-image-5" src="/images/no_images.png" class="modal-pictures__img upload-image">
+                      <img id="upload-image-6" src="/images/no_images.png" class="modal-pictures__img upload-image d-none">
+                      <img id="upload-image-7" src="/images/no_images.png" class="modal-pictures__img upload-image d-none">
+                      <img id="upload-image-8" src="/images/no_images.png" class="modal-pictures__img upload-image d-none">
+                      <img id="upload-image-9" src="/images/no_images.png" class="modal-pictures__img upload-image d-none">
+                      <img id="upload-image-10" src="/images/no_images.png" class="modal-pictures__img upload-image d-none">
                     </div>
-                    <button class="btn download-img">Загрузите фотографии</button>
+                    <button
+                        v-on:click="uploadChange"
+                        class="btn download-img"
+                    >
+                      Загрузите фотографии
+                    </button>
+                    <button
+                        v-on:click="cleanImages"
+                        class="btn clean-img d-none"
+                    >
+                      Очистить
+                    </button>
+                    <input v-on:change="imageSave" type="file" id="imageLoad" multiple class="d-none">
+                    <p class="error-validation d-none" id="maxLengthImg">Можно загрузить не более 10 файлов</p>
+                    <p class="error-validation error-img d-none">Пожалуйста, загрузите хотя бы одно изображение</p>
                   </div>
                 </div>
                 <div class="modal-info">
@@ -312,25 +336,26 @@ export default {
             weight: "",
             amount: "",
             address: "",
+            active: true,
             delivery: true,
             deliveryPrice: "",
             description: "",
             slug: "new-cake",
-            img: "/images/cakes/cake2-1.jpg",
+            img: "",
             id: 50,
             currency: "₽",
             slides: [
               {
-                img: "/images/cakes4.jpg"
+                img: ""
               },
               {
-                img: "/images/cakes3.jpg"
+                img: ""
               },
               {
-                img: "/images/cakes2.jpg"
+                img: ""
               },
               {
-                img: "/images/medstal.jpg"
+                img: ""
               }
             ],
           }
@@ -442,6 +467,54 @@ export default {
       }
     },
 
+    uploadChange: function () {
+      document.getElementById('maxLengthImg').classList.add('d-none')
+      document.getElementById('imageLoad').click()
+    },
+
+    cleanImages: function () {
+      let images = document.getElementsByClassName('upload-image')
+      let imagesArr = []
+      for (let key in images) {
+        if (typeof images[key] === "object") {
+          imagesArr.push(images[key])
+        }
+      }
+      for (let index in imagesArr) {
+        images[index].src = '/images/no_images.png'
+      }
+      document.getElementsByClassName('clean-img')[0].classList.add('d-none')
+      this.newAuction.img = ""
+      document.getElementById('upload-image-1').classList.remove('uploaded')
+    },
+    //загружаем картинки в модалку
+    imageSave: function () {
+      let images = document.getElementsByClassName('upload-image')
+      let imagesArr = []
+      let files = document.getElementById('imageLoad').files
+
+      for (let key in images) {
+        if (typeof images[key] === "object") {
+          imagesArr.push(images[key])
+        }
+      }
+
+      for (let index = 0; (index < files.length); index++) {
+        if (index < 10) {
+          let reader = new FileReader()
+          reader.onloadend = function () {
+            imagesArr[index].src = reader.result
+          }
+          reader.readAsDataURL(files[index])
+        } else {
+          document.getElementById('maxLengthImg').classList.remove('d-none')
+        }
+      }
+      document.getElementsByClassName('clean-img')[0].classList.remove('d-none')
+      document.getElementById('upload-image-1').classList.add('uploaded')
+      document.getElementsByClassName('error-img')[0].classList.add('d-none')
+    },
+
     // собираем данные с полей в новый аукцион
     setCities: function () {
       let errorNotify = document.getElementsByClassName('error-city')
@@ -517,6 +590,17 @@ export default {
       this.newAuction.description = document.getElementById('description').value
       errorNotify[0].classList.add('d-none')
     },
+    setImages: function () {
+      this.newAuction.img = document.getElementById('upload-image-1').src
+      let slideArr = this.newAuction.slides
+      for (let index in slideArr) {
+        slideArr[index].img = document.getElementById('upload-image-' + (Number(index)+1).toString()).src
+      }
+    },
+    checkUploadedMainImg: function () {
+      let el = document.getElementById('upload-image-1')
+      return el.classList.contains('uploaded');
+    },
 
     //проверяем поля на пустоту
     validationData: function () {
@@ -530,6 +614,10 @@ export default {
       }
     },
     submitForm: function () {
+      this.setImages()
+      if (!this.checkUploadedMainImg()) {
+        document.getElementsByClassName('error-img')[0].classList.remove('d-none')
+      }
       let validationCount = Object.keys(this.newAuction).length
       let updateCakeList = this.cakesList
       for (let input in this.newAuction) {
