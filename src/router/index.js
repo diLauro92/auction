@@ -3,7 +3,7 @@ import HomeView from '../views/AuctionView.vue'
 
 const routes = [
   {
-    path: '/auction',
+    path: '/',
     name: 'home',
     component: HomeView
   },
@@ -16,7 +16,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/auction/:slug',
+    path: '/:slug',
     name: 'cake',
     component: () => import(/* webpackChunkName: "about" */ '../views/CakeView.vue')
   },

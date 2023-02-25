@@ -27,7 +27,7 @@ export default {
         },
         {
           text: 'Аукцион',
-          href: '/auction'
+          href: '/'
         }
       ]
     }

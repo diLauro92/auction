@@ -5,7 +5,7 @@
       class="auction-shop-item">
     <div class="auction-shop-item-img">
       <router-link
-          :to="'/auction/' + item.slug">
+          :to="'/' + item.slug">
         <img
             :src="item.img"
             class="shop-item__img"
@@ -63,7 +63,7 @@
         </div>
       </div>
       <router-link
-          :to="'/auction/' + item.slug"
+          :to="'/' + item.slug"
           :class="[`auction-participate__btn btn ${item.active ? `active` : ``}`]"
       >
         Участвовать
