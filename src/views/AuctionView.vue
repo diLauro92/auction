@@ -19,7 +19,7 @@
                 id="now"
             >
               <router-link
-                  to="/auction"
+                  to="/"
                   class="auction-tabs-item__link"
               >
                 Проходят сейчас
@@ -31,7 +31,7 @@
                 id="future"
             >
               <router-link
-                  to="/auction"
+                  to="/"
                   class="auction-tabs-item__link"
               >
                 Запланированные
@@ -43,7 +43,7 @@
                 id="myAuction"
             >
               <router-link
-                  to="/auction"
+                  to="/"
                   class="auction-tabs-item__link"
               >
                 Мой аукцион
