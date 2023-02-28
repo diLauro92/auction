@@ -46,6 +46,10 @@
     </div>
     <div class="cake-bets-right">
       <div class="cake-bets-history_title cake-bets-container__title">История ставок</div>
+      <div class="bet-complete d-none">
+        <img src="/images/icon/check.png" alt="" class="complete-img">
+        <p class="complete-text">Ставка сделана</p>
+      </div>
       <ul class="cake-bets-list">
         <li
             v-for="(item, index) in currentBets"
@@ -106,7 +110,7 @@ export default {
       currentUser:
           {
             id: 11,
-            userName: "Username L.",
+            userName: "Вы",
             avatar: '/images/icon/profile.png',
             created: '1 минуту назад',
             amount: 0,
@@ -168,6 +172,8 @@ export default {
       updateCurrentBets.sort((bet1, bet2) => bet1.amount < bet2.amount ? 1 : -1)
       this.$refs.step_amount.innerText = this.currentCakeInfo.minStep.toString()
       this.$refs.step_amount.setAttribute('data-amount', this.currentCakeInfo.minStep)
+      document.getElementsByClassName('bet-complete')[0].classList.remove('d-none')
+      console.log(updateCurrentBets)
     }
   }
 }
