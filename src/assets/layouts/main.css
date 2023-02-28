@@ -2153,4 +2153,237 @@ p.radio-button.active:after {
   width: auto;
   margin-top: 4.625rem;
 }
+.modal-registration {
+  width: 61.875rem;
+  height: auto;
+  overflow-y: hidden;
+  padding-bottom: 0;
+}
+@media (max-width: 1024px) {
+  .modal-registration {
+    width: 45.875rem;
+  }
+}
+@media (max-width: 768px) {
+  .modal-registration {
+    width: 34.875rem;
+  }
+}
+@media (max-width: 590px) {
+  .modal-registration {
+    width: 28.875rem;
+  }
+}
+@media (max-width: 480px) {
+  .modal-registration {
+    width: 22.875rem;
+    overflow-y: auto;
+  }
+}
+@media (max-width: 390px) {
+  .modal-registration {
+    width: 18.875rem;
+  }
+}
+.modal-registration .modal-container {
+  padding: 0;
+}
+@media (max-width: 480px) {
+  .modal-registration .modal-container {
+    margin-top: 2.75rem;
+    height: 90vh;
+  }
+}
+.modal-registration .modal-title {
+  margin-top: 4.75rem;
+}
+@media (max-width: 480px) {
+  .modal-registration .modal-title {
+    margin-top: 2.75rem;
+    text-align: left;
+    margin-left: 1rem;
+  }
+}
+.text-secondary {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+}
+@media (max-width: 480px) {
+  .text-secondary {
+    text-align: left;
+    margin-left: 1rem;
+  }
+}
+.registration-form {
+  margin: 1.875rem 6.375rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.375rem;
+}
+@media (max-width: 1024px) {
+  .registration-form {
+    margin: 1.875rem 1.375rem 0;
+  }
+}
+@media (max-width: 768px) {
+  .registration-form {
+    grid-gap: 1.375rem 0;
+  }
+}
+@media (max-width: 590px) {
+  .registration-form {
+    grid-gap: 1.375rem 0.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .registration-form {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem 0.5rem;
+    margin: 1.275rem 1rem 0;
+  }
+}
+.registration-form > div {
+  margin-bottom: -0.5rem;
+}
+.registration-form input {
+  background: #F1F1F1;
+  border-radius: 0.375rem;
+  border: none;
+  height: 3rem;
+  width: 23.875rem;
+  padding: 1rem 1.188rem;
+  box-sizing: border-box;
+  font-size: 0.875rem;
+}
+@media (max-width: 1024px) {
+  .registration-form input {
+    width: 18.875rem;
+  }
+}
+@media (max-width: 768px) {
+  .registration-form input {
+    width: 14.875rem;
+  }
+}
+@media (max-width: 590px) {
+  .registration-form input {
+    width: 11.875rem;
+  }
+}
+@media (max-width: 480px) {
+  .registration-form input {
+    width: 100%;
+  }
+}
+.registration-form .block-with-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.125rem;
+}
+@media (max-width: 1024px) {
+  .registration-form .block-with-selector {
+    display: flex;
+  }
+}
+@media (max-width: 590px) {
+  .registration-form .block-with-selector {
+    grid-gap: 0.525rem;
+  }
+}
+.registration-form .block-with-selector input {
+  width: 14.5rem;
+}
+@media (max-width: 1024px) {
+  .registration-form .block-with-selector input {
+    width: 11.525rem;
+  }
+}
+@media (max-width: 768px) {
+  .registration-form .block-with-selector input {
+    width: 9.525rem;
+  }
+}
+@media (max-width: 590px) {
+  .registration-form .block-with-selector input {
+    width: 8.025rem;
+  }
+}
+@media (max-width: 480px) {
+  .registration-form .block-with-selector input {
+    width: 80%;
+  }
+}
+.registration-form select {
+  width: 8.125rem;
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .registration-form select {
+    width: 6.125rem;
+  }
+}
+@media (max-width: 768px) {
+  .registration-form select {
+    width: 4.225rem;
+  }
+}
+@media (max-width: 590px) {
+  .registration-form select {
+    width: 3.225rem;
+  }
+}
+@media (max-width: 480px) {
+  .registration-form select {
+    width: 20%;
+  }
+}
+.registration-form .input_label {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.registration-form .registration-form-submit {
+  width: 23.875rem;
+}
+@media (max-width: 1024px) {
+  .registration-form .registration-form-submit {
+    width: 18.875rem;
+  }
+}
+@media (max-width: 768px) {
+  .registration-form .registration-form-submit {
+    width: 14.875rem;
+  }
+}
+@media (max-width: 590px) {
+  .registration-form .registration-form-submit {
+    width: 11.875rem;
+  }
+}
+@media (max-width: 480px) {
+  .registration-form .registration-form-submit {
+    width: 100%;
+  }
+}
+.registration-form .btn-block {
+  margin-top: 0.5rem;
+  margin-bottom: 5.75rem;
+}
+@media (max-width: 480px) {
+  .registration-form .btn-block {
+    margin-bottom: 0;
+  }
+}
+.registration-form .policy-warning {
+  margin-left: 0.5rem;
+  margin-top: 0.8rem;
+}
+@media (max-width: 480px) {
+  .registration-form .policy-warning {
+    margin-bottom: 1.75rem;
+  }
+}
+.registration-form .policy-warning a {
+  text-decoration: underline;
+}
 /*# sourceMappingURL=main.css.map */

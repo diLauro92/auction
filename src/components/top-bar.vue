@@ -20,17 +20,22 @@
       <button class="header_signup__cityBtn">
         Санкт-Петербург
       </button>
-      <button class="header_signup__register">
+      <button
+          @click="showModal"
+          class="header_signup__register">
         Регистрация
       </button>
     </div>
   </header>
+  <registration-form ref="modal"/>
 </template>
 
 <script>
 
 
+import RegistrationForm from "@/components/registration-form";
 export default {
+  components: {RegistrationForm},
   data() {
     return {
       headerMenuList: [
@@ -43,6 +48,12 @@ export default {
       ],
     }
   },
+  methods: {
+    showModal: function () {
+      this.$refs.modal.show = true
+      document.body.classList.add('showModal')
+    }
+  }
 }
 </script>
 
